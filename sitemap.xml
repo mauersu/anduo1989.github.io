@@ -2,6 +2,11 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/read/index.html</loc>
+    <lastmod>2015-11-08T12:49:48.000Z</lastmod>
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/2015/11/08/shell-basics/</loc>
     <lastmod>2015-11-08T12:27:07.000Z</lastmod>
   </url>
