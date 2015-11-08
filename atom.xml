@@ -4,7 +4,7 @@
   <subtitle><![CDATA[程序猿开荒野史]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://yoursite.com/"/>
-  <updated>2015-11-07T19:50:23.000Z</updated>
+  <updated>2015-11-08T12:27:07.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -13,6 +13,117 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title><![CDATA[常用的shell脚本记录]]></title>
+    <link href="http://yoursite.com/2015/11/08/shell-basics/"/>
+    <id>http://yoursite.com/2015/11/08/shell-basics/</id>
+    <published>2015-11-08T12:20:27.000Z</published>
+    <updated>2015-11-08T12:27:07.000Z</updated>
+    <content type="html"><![CDATA[<p>主要记录《Linux Shell 脚本攻略》一书很使用的脚本命令，以备用！</p>
+<p><img src="http://i12.tietuku.com/eb3991143e5ec10cs.jpg"></p>
+<a id="more"></a>
+<h2 id="基础入门命令">基础入门命令</h2><p>1、获取字符串长度<br><figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="property">length</span> = $&#123;<span class="comment">#var&#125;</span></span><br></pre></td></tr></table></figure></p>
+<p>2、获得当前使用的SHELL版本<br><figure class="highlight xquery"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">echo <span class="variable">$SHELL</span> 或 echo <span class="variable">$0</span></span><br></pre></td></tr></table></figure></p>
+<p>3、使用函数添加系统变量<br><figure class="highlight xquery"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">prepend()&#123; [ -d “<span class="variable">$2</span>”] &amp;&amp; eval <span class="variable">$1</span>=\”<span class="variable">$2</span>\$\&#123;<span class="variable">$1</span>:+’:’\$<span class="variable">$1</span>\&#125;\” &amp;&amp; export <span class="variable">$1</span> ;&#125;</span><br></pre></td></tr></table></figure></p>
+<p>使用方法：<br><figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="label">prepend</span> PATH /<span class="preprocessor">opt</span>/myapp/<span class="keyword">bin</span><br><span class="line"></span><span class="label">prepend</span> PATH LD_LIBRARY_PATH /<span class="preprocessor">opt</span>/myapp/<span class="keyword">bin</span></span><br></pre></td></tr></table></figure></p>
+<p>4、别名的使用<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">alias</span> rm=‘cp <span class="variable">$@</span> ~/backup &amp;&amp; rm <span class="variable">$@</span><span class="string">'</span></span><br></pre></td></tr></table></figure></p>
+<p>5、repeat 函数，运行命令直至执行成功<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="title">repeat</span></span>()&#123; <span class="keyword">while</span> :; <span class="keyword">do</span> <span class="variable">$@</span> &amp;&amp; <span class="built_in">return</span>; sleep <span class="number">30</span>; <span class="keyword">done</span> &#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="命令之乐">命令之乐</h2><h3 id="文件查找与文件列表">文件查找与文件列表</h3><p>1、根据文件名或者正则表达式进行搜索：<br><figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">find <span class="special">~</span>/ -name “*.txt” -print</span><br><span class="line">find . <span class="command">\(</span> -iname “example*” -o -name “*.pdf” <span class="command">\)</span> -print</span><br><span class="line">find . -iregex “.*<span class="command">\(</span><span class="command">\.</span>py<span class="command">\|</span><span class="command">\.</span>sh<span class="command">\)</span><span class="formula">$”</span></span><br></pre></td></tr></table></figure></p>
+<p>2、否定参数<br><figure class="highlight dos"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">find</span> . ! -name “*.txt” -<span class="built_in">print</span></span><br></pre></td></tr></table></figure></p>
+<p>3、基于目录深度的搜索<br><figure class="highlight dos"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">find</span> . -maxdepth <span class="number">1</span> -name “f*” -<span class="built_in">print</span></span><br></pre></td></tr></table></figure></p>
+<p>4、根据文件类型搜索<br><figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">find . -<span class="keyword">type</span> <span class="keyword">d</span> -<span class="keyword">print</span></span><br><span class="line">#文件类型: 普通文件-f、符号链接-<span class="keyword">l</span>、目录-<span class="keyword">d</span>、字符设备-c</span><br></pre></td></tr></table></figure></p>
+<p>5、根据文件时间进行搜索<br><figure class="highlight vala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor">#-atime  访问时间</span></span><br><span class="line"><span class="preprocessor">#-mtime 修改时间</span></span><br><span class="line"><span class="preprocessor">#-ctime  变化时间</span></span><br><span class="line"></span><br><span class="line"><span class="preprocessor">#打印出在最近7天被访问过的所有文件</span></span><br><span class="line">find . -type f -atime -<span class="number">7</span> -print</span><br><span class="line"></span><br><span class="line"><span class="preprocessor">#-amin 访问时长</span></span><br><span class="line"><span class="preprocessor">#-mmin 修改时长</span></span><br><span class="line"><span class="preprocessor">#-cmin 变化时长</span></span><br></pre></td></tr></table></figure></p>
+<p>6、基于文件大小搜索(k\M\G)<br><figure class="highlight sqf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">find</span> . -<span class="built_in">type</span> f -<span class="built_in">size</span> +<span class="number">2</span>k</span><br><span class="line"><span class="built_in">find</span> . -<span class="built_in">type</span> f -<span class="built_in">size</span> -<span class="number">2</span>k</span><br><span class="line"><span class="built_in">find</span> . -<span class="built_in">type</span> f -<span class="built_in">size</span> <span class="number">2</span>k</span><br></pre></td></tr></table></figure></p>
+<p>7、删除匹配的文件<br><figure class="highlight sqf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">find</span> . -<span class="built_in">type</span> f -<span class="built_in">name</span> “*.swap” -delete</span><br></pre></td></tr></table></figure></p>
+<h3 id="玩转xargs">玩转xargs</h3><p>1、基础<br><figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">cat</span> example.txt | xarges -<span class="keyword">n</span> 3</span><br></pre></td></tr></table></figure></p>
+<p>2、结合find使用xargs<br><figure class="highlight sqf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">find</span> . -<span class="built_in">type</span> f -<span class="built_in">name</span> “*.txt” -print0 | xarges -<span class="number">0</span> rm -f</span><br></pre></td></tr></table></figure></p>
+<p>3、统计源码目录中所有java程序文件的行数<br><figure class="highlight sqf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">find</span> source_code_dir_path -<span class="built_in">type</span> f -<span class="built_in">name</span> “*.java” -print0 | xargs -<span class="number">0</span> wc -l</span><br></pre></td></tr></table></figure></p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>主要记录《Linux Shell 脚本攻略》一书很使用的脚本命令，以备用！</p>
+<p><img src="http://i12.tietuku.com/eb3991143e5ec10cs.jpg" /></p>]]>
+    
+    </summary>
+    
+      <category term="linux" scheme="http://yoursite.com/tags/linux/"/>
+    
+      <category term="shell" scheme="http://yoursite.com/tags/shell/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[awk 日志处理]]></title>
+    <link href="http://yoursite.com/2015/11/08/awk-log/"/>
+    <id>http://yoursite.com/2015/11/08/awk-log/</id>
+    <published>2015-11-08T12:04:27.000Z</published>
+    <updated>2015-11-08T12:20:47.000Z</updated>
+    <content type="html"><![CDATA[<h1 id="前言">前言</h1><p>这两天自己挽起袖子处理日志，终于把AWK给入门了。其实AWK的基本使用，学起来也就半天的时间，之前总是靠同事代劳，惰性呀。</p>
+<p>此文仅为菜鸟入门，运维们请勿围观。</p>
+<p><img src="http://i13.tietuku.com/a9888f27c9795139s.jpg"></p>
+<p><code>本文转载直网络，如有版权问题，请及时与我联系</code></p>
+<a id="more"></a>
+<p>下面是被处理的日志的示例，不那么标准，但不标准的日志正是标准的情况。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[<span class="number">2015</span>-<span class="number">08</span>-<span class="number">20</span> <span class="number">10</span>:<span class="number">00</span>:<span class="number">55.600</span>] - [<span class="number">192.168</span><span class="number">.0</span><span class="number">.73</span>/<span class="number">192.168</span><span class="number">.0</span><span class="number">.75</span>:<span class="number">1080</span> com.vip.xxx.MyService_2<span class="number">.0</span> <span class="number">0</span> <span class="number">106046</span> <span class="number">100346</span> <span class="number">90</span>ms <span class="number">110</span>ms]</span><br></pre></td></tr></table></figure>
+<h1 id="基本语句">基本语句</h1><p>最基本的语句，以空格做分割，提取所需的列：</p>
+<figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">awk '&#123;<span class="keyword">print</span> <span class="label">$0</span>,<span class="label">$1</span>,<span class="label">$2</span>,$(NF-1),<span class="label">$NF</span>,<span class="label">$NF</span>-$(NF-1)&#125;’ access.<span class="literal">log</span></span><br></pre></td></tr></table></figure>
+<h2 id="1-_输入">1. 输入</h2><p>AWK是针对文件或管道中每行输入的处理语言。所以也可以从管道输入:<br><figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grep “xxx” access.<span class="keyword">log</span> | awk '&#123;<span class="keyword">print</span> <span class="label">$1&#125;</span>’</span><br></pre></td></tr></table></figure></p>
+<p>但下面这样写就会成为一个Linux老梗的主角，awk不需要不需要cat的。<br><figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">cat</span> access.<span class="keyword">log</span> | awk '&#123;<span class="keyword">print</span> <span class="label">$1&#125;</span>'</span><br></pre></td></tr></table></figure></p>
+<h2 id="2-语句定义">2.语句定义</h2><p>可以快速的用单引号’ ’，把所有语句写成一行。</p>
+<p>也可以用-f 指定文件，文件里可以任意换行，增加可读性和重用性。</p>
+<p>所有执行语句用{}括起来，{}的外面是一些高级的东西比如过滤条件，见后。</p>
+<h2 id="3-_列引用">3. 列引用</h2><p>$0代表整行所有数据，$1代表第一列(终于不是程序员数数从0开始了)。</p>
+<p>NF是个代表总列数的系统变量，所以$NF代表最后一列，还支持$(NF-1)来表示倒数第二列。</p>
+<p>还支持列之间的运算，如$NF-$(NF-1)是最后两列的值相减。</p>
+<p>只写一个print 是 print $0的简写，打印整行所有数据。</p>
+<h2 id="4-_输入的列分隔符">4. 输入的列分隔符</h2><p>默认以空格做分割符，也可以重新指定，下例指定了’:’<br><figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">awk</span> -F <span class="string">':'</span> <span class="string">'&#123;print <span class="variable">$1</span>,<span class="variable">$2</span>&#125;’ access.log</span></span><br></pre></td></tr></table></figure></p>
+<p>也可以正则表达式定义多个分割符，下例指定了 ‘-‘ 和 ‘:’<br><figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">awk</span> -F <span class="string">'[-:]'</span> <span class="string">'&#123;print <span class="variable">$1</span>,<span class="variable">$2</span>&#125;’ access.log</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="5-_输出的列间隔">5. 输出的列间隔</h2><p>print $1,$2 中间的’,’逗号，代表打印时第1与第2列之间使用默认分隔符号也就是空格，也可以用” ”来定义其他任意的字符：</p>
+<figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">awk '&#123;<span class="keyword">print</span> <span class="label">$1</span> <span class="string">"\t"</span> <span class="label">$2</span> <span class="string">" - "</span> <span class="label">$3</span><span class="label">$4xxxxx</span><span class="label">$5&#125;</span>’ access.<span class="literal">log</span></span><br></pre></td></tr></table></figure>
+<p>上例，在第1第2列之间用 tab 分隔，第2第3列之间用” - “分隔，</p>
+<p>也可以什么都不写代表中间没分隔，比如第3第4列之间，或者乱写一些字符没用” “括起来，也等于没写，比如第4第5列之间。</p>
+<p>数字类型，字符串类型</p>
+<p>虽然上例最后两列的值是字符串类型的，带着ms字样，看起来不能做算术运算。</p>
+<p>但其实两个列相减时，AWK就会神奇地把它们转换为纯数字。同样，做累计的时候，sum=sum+$NF，也能自动转换为数字。</p>
+<p>如果想对某个字符列比较是否大于阀值，先把它转回数字就行了</p>
+<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">sed</span> <span class="string">"s|ms]||g"</span> access.log | awk <span class="string">' <span class="variable">$NF</span>&gt;100 &#123;print&#125;'</span></span><br></pre></td></tr></table></figure>
+<p>其实可以简写成下面的样子，性能还比使用sed略快：<br><figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">awk ' <span class="label">$NF</span>*1&gt;100 &#123;<span class="keyword">print</span>&#125;’ access.<span class="literal">log</span></span><br></pre></td></tr></table></figure></p>
+<p>或<br><figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">awk ' int(<span class="label">$NF</span>)&gt;100 &#123;<span class="keyword">print</span>&#125;’ access.<span class="literal">log</span></span><br></pre></td></tr></table></figure></p>
+<h1 id="BEGIN与END语句">BEGIN与END语句</h1><p>BEGIN与END后的语句定义在处理全部文本内容之前与之后的语句。</p>
+<h2 id="1-计算累计值和平均值">1.计算累计值和平均值</h2><figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">awk '&#123;<span class="keyword">sum</span>+=<span class="label">$NF&#125;</span> END &#123;<span class="keyword">print</span> <span class="keyword">sum</span>, <span class="keyword">sum</span>/NR&#125;'</span><br></pre></td></tr></table></figure>
+<p>上例对每行输入内容进行最后一列的值的累计，而END后的语句，打印累计结果 和平均值，NR是系统变量代表总行数。</p>
+<h2 id="2-打印表头">2.打印表头</h2><p>还可以定义BEGIN语句打印表头，定义变量什么的。<br><figure class="highlight nsis"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">awk 'BEGIN&#123;<span class="literal">print</span> <span class="string">"Date\t\tTime\t\tCost”&#125; &#123;print <span class="variable">$1</span> "</span>\t<span class="string">"<span class="variable">$2</span> "</span>\t<span class="string">" <span class="variable">$NF</span>&#125;’ access.log</span></span><br></pre></td></tr></table></figure></p>
+<p>上例表头用两个制表符分隔，内容则用一个制表符分隔，有良好的对齐效果。</p>
+<h1 id="过滤行">过滤行</h1><h2 id="1-_简单字符匹配">1. 简单字符匹配</h2><p>先用grep过滤也是可以的，也可以用awk简单在执行语句之外的/ /之间定义正则表达式<br><figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">awk '/192.168.0.4[1-5]/ &#123;<span class="keyword">print</span> <span class="label">$1&#125;</span>’ access.<span class="literal">log</span></span><br></pre></td></tr></table></figure></p>
+<p>等价于<br><figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grep "192.168.0.4[1-5]” access.<span class="keyword">log</span>｜ awk ‘&#123;<span class="keyword">print</span> <span class="label">$1&#125;</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="2-_针对某一列的字符匹配">2. 针对某一列的字符匹配</h2><p>针对第4列的地址段匹配，~ 是字符匹配，!~则是不匹配的意思。<br><figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">awk</span> <span class="string">'<span class="variable">$4</span> ~ /192.168.0.4[1-5]/ &#123;print&#125;'</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="3-_针对数值的过滤">3. 针对数值的过滤</h2><p>支持==, !=， , &gt;, =, &gt;=<br><figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">awk</span> <span class="string">'$(NF-1)*1==100 &#123;print&#125;'</span></span><br><span class="line">awk <span class="string">'<span class="variable">$NF</span>-$(NF－1)&gt;100 &#123;print&#125;'</span></span><br></pre></td></tr></table></figure></p>
+<p>见前，对于非纯数字的字段，可以用算术运算让它转回数字。</p>
+<h2 id="4-_多条件同时存在">4. 多条件同时存在</h2><figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">awk</span> <span class="string">'(<span class="variable">$12</span> &gt;150 || $(13)&gt;250) &#123;print&#125;'</span></span><br></pre></td></tr></table></figure>
+<h2 id="5-_使用if语句">5. 使用if语句</h2><p>如果逻辑更复杂，可以考虑使用if,else等语句<br><figure class="highlight dos"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">awk '&#123; <span class="flow">if</span> ($(NF-<span class="number">1</span>)*<span class="number">1</span>&gt;<span class="number">100</span>) <span class="built_in">print</span>&#125;'</span><br></pre></td></tr></table></figure></p>
+<h1 id="其他">其他</h1><h2 id="1-外部传入参数">1.外部传入参数</h2><p>比如从外面传入超时的阀值，注意threshold在命令行中的位置。<br><figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">awk '&#123;<span class="keyword">if</span>($(NF)*1&gt;threshold) <span class="keyword">print</span>&#125;' threshold=20 access.<span class="literal">log</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="2-常用函数">2.常用函数</h2><p>最有用是gsub和sub，match，index等。其中gsub将一个字符串替换为目标字符串，可选定整行替换或只替换某一列。</p>
+<figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">awk '&#123;gsub(<span class="string">"ms]"</span>,<span class="string">""</span>,<span class="label">$NF</span>); <span class="keyword">if</span>( <span class="label">$NF</span>&gt;100 ) <span class="keyword">print</span>&#125;' access.<span class="literal">log</span></span><br></pre></td></tr></table></figure>
+<h1 id="一些例子">一些例子</h1><h2 id="1-截取日期段内段数据">1.截取日期段内段数据</h2><p>方式有很多，都是随着日志格式不同自由发挥。</p>
+<p>比如下段截取17:30:30 秒到 17.31:00的数据，先抽取出时分秒三列，再拼成一个数字进行比较<br><figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">awk</span> -F <span class="string">"[ :.]"</span> <span class="string">'<span class="variable">$2</span><span class="variable">$3</span><span class="variable">$4</span>&gt;=173030 <span class="variable">$2</span><span class="variable">$3</span><span class="variable">$4173100</span> &#123;print&#125;'</span></span><br></pre></td></tr></table></figure></p>
+<p>也可以匹配某个整点时间， 下例取11点的日志:<br><figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">awk '/[2015-08-20 11:/ &#123;<span class="keyword">print</span> <span class="label">$1&#125;</span>’ access.<span class="literal">log</span></span><br></pre></td></tr></table></figure></p>
+<p>取11点01分到05分的数据:<br><figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">awk '/[2015-08-20 11:0[1-5]:/ &#123;<span class="keyword">print</span> <span class="label">$1&#125;</span>’ access.<span class="literal">log</span></span><br></pre></td></tr></table></figure></p>
+<h1 id="2-_找出超时的数据集中发生的时间">2. 找出超时的数据集中发生的时间</h1><p>第一段找出超时记录，第二段过滤掉时间戳里的微秒，然后按秒来合并，并统计该秒超时的次数。<br><figure class="highlight xquery"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">awk <span class="string">'$(NF)*1&gt;100 &#123;print&#125;’ access.log | awk -F"." '</span>&#123;print <span class="variable">$1</span>&#125;<span class="string">' | sort | uniq -c</span></span><br></pre></td></tr></table></figure></p>
+<p>————- END ——————–</p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<h1 id="前言">前言</h1><p>这两天自己挽起袖子处理日志，终于把AWK给入门了。其实AWK的基本使用，学起来也就半天的时间，之前总是靠同事代劳，惰性呀。</p>
+<p>此文仅为菜鸟入门，运维们请勿围观。</p>
+<p><img src="http://i13.tietuku.com/a9888f27c9795139s.jpg" /></p>
+<p><code>本文转载直网络，如有版权问题，请及时与我联系</code></p>]]>
+    
+    </summary>
+    
+      <category term="awk" scheme="http://yoursite.com/tags/awk/"/>
+    
+      <category term="linux" scheme="http://yoursite.com/tags/linux/"/>
+    
+  </entry>
   
   <entry>
     <title><![CDATA[R语言实现之决策树]]></title>
