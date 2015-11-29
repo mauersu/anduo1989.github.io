@@ -1,0 +1,383 @@
+
+
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script type="text/javascript" src="http://tajs.qq.com/stats?sId=443828553" charset="UTF-8"></script>
+  <script>
+	var _hmt = _hmt || [];
+	(function() {
+	  var hm = document.createElement("script");
+	  hm.src = "//hm.baidu.com/hm.js?7192fa361f5cabb11d8a22de41c1ba8f";
+	  var s = document.getElementsByTagName("script")[0]; 
+	  s.parentNode.insertBefore(hm, s);
+	})();
+	</script>
+  
+  <title>Mac中基于Homebrew搭建python开发环境 | 攻城狮笔记</title>
+  <meta name="author" content="anduo">
+  
+  <meta name="description" content="轻巧键盘，静待回音">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="Mac中基于Homebrew搭建python开发环境"/>
+  <meta property="og:site_name" content="攻城狮笔记"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+  <link href="/imgs/favicon.ico" rel="icon" type="image/x-ico">
+  <link rel="alternate" href="/atom.xml" title="攻城狮笔记" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  <script src="//libs.baidu.com/jquery/1.8.0/jquery.min.js"></script>
+</head>
+
+
+<body>
+  <header><div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/imgs/logo.png" alt="攻城狮笔记" title="攻城狮笔记"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name">攻城狮笔记</h1>
+				<h2 class="blog-motto">程序猿开荒野史</h2>
+			</div>
+			<nav class="animated">
+				<ul>
+					
+						<li><a href="/">Home</a></li>
+					
+						<li><a href="/archives">Archives</a></li>
+					
+						<li><a href="/about">About</a></li>
+					
+					<li> <a href="/atom.xml">RSS</a> </li>
+				</ul>
+			</nav>			
+</div>
+</header>
+  <div id="content" class="inner">
+    <div id="main-col" class="alignleft"><div id="wrapper"><article class="post">
+  
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
+  <div class="post-content">
+    <header class="article-info clearfix">
+  <h1 itemprop="name">
+	Mac中基于Homebrew搭建python开发环境
+  </h1>
+  <p class="article-author">By
+    
+      <a href="http://yoursite.com" title="anduo">anduo</a>
+    </p>
+  <p class="article-time">
+    <time datetime="2015-11-08T12:04:27.000Z" itemprop="datePublished">2015-11-08</time>
+    更新日期:<time datetime="2015-11-29T12:07:41.000Z" itemprop="dateModified">2015-11-29</time>
+    
+  </p>
+</header>
+    <div class="entry">
+		
+			<div id="toc" class="toc-article">
+				<strong class="toc-title">文章目录</strong>
+				<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-安装homebrew的准备"><span class="toc-number">1.</span> <span class="toc-text">1.安装homebrew的准备</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-通过shell安装"><span class="toc-number">2.</span> <span class="toc-text">2.通过shell安装</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-brew的简单命令"><span class="toc-number">3.</span> <span class="toc-text">4.brew的简单命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-安装python"><span class="toc-number">4.</span> <span class="toc-text">5.安装python</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-将python加入path"><span class="toc-number">5.</span> <span class="toc-text">6.将python加入path</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-检查安装是否正确"><span class="toc-number">6.</span> <span class="toc-text">7.检查安装是否正确</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8-通过easy_install安装pip"><span class="toc-number">7.</span> <span class="toc-text">8.通过easy_install安装pip</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#9-安装virtualenv_和_virtuanenvwarpper"><span class="toc-number">8.</span> <span class="toc-text">9.安装virtualenv 和 virtuanenvwarpper</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#10-建立和项目相关的env"><span class="toc-number">9.</span> <span class="toc-text">10.建立和项目相关的env</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#11-启动虚拟环境"><span class="toc-number">10.</span> <span class="toc-text">11.启动虚拟环境</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#12-退出虚拟环境"><span class="toc-number">11.</span> <span class="toc-text">12.退出虚拟环境</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#13-pip的设定"><span class="toc-number">12.</span> <span class="toc-text">13.pip的设定</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#14-安装你需要的软件包（注意提示符）"><span class="toc-number">13.</span> <span class="toc-text">14.安装你需要的软件包（注意提示符）</span></a></li></ol>
+			</div>
+		
+        <p>@(python)[mac|homebrew|shell|开发环境]</p>
+<p><img src="http://i5.tietuku.com/25c8e2c52434a7e7.png" alt="python"></p>
+<p>转移到mac上了。这里是在lion中搭建python开发环境的简单记录。这份记录不是一份step by step.而是事后写的记录，可能有记忆遗漏。如果有错误，请指正。</p>
+<a id="more"></a>
+<h3 id="1-安装homebrew的准备">1.安装homebrew的准备</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo chown -R `whoami` /usr/<span class="built_in">local</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>homebrew希望在没有sudo的环境下工作（Homebrew is designed to work without using sudo.）所以首先对/usr/local/这个文件夹赋权限。（homebrew的软件是安装在这里的）</p>
+</blockquote>
+<h3 id="2-通过shell安装">2.通过shell安装</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ruby <span class="operator">-e</span> <span class="string">"<span class="variable">$(curl -fsSL https://gist.github.com/raw/323731/install_homebrew.rb)</span>"</span></span><br></pre></td></tr></table></figure>
+<p>3.配置环境变量：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ nano ~/.bash_profile</span><br></pre></td></tr></table></figure></p>
+<p>加入以下内容：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#Setting PATH for Homebrew</span></span><br><span class="line">PATH=<span class="string">"/usr/local/bin:<span class="variable">$&#123;PATH&#125;</span>"</span></span><br><span class="line"><span class="built_in">export</span> PATH</span><br></pre></td></tr></table></figure></p>
+<p>Ok，这样homebrew就装好了。</p>
+<h3 id="4-brew的简单命令">4.brew的简单命令</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$ brew search &lt;pkg_name&gt;  <span class="comment">#查找软件包</span></span><br><span class="line">$ brew install &lt;pkg_name&gt;  <span class="comment">#安装软件包</span></span><br><span class="line">$ brew list <span class="comment">#列出软件包</span></span><br><span class="line">$ brew uninstall &lt;pkg_name&gt; <span class="comment">#卸载软件包</span></span><br><span class="line">$ brew update <span class="comment">#更新</span></span><br><span class="line">$ brew info &lt;pkg_name&gt; <span class="comment">#查看软件包的基本资料</span></span><br></pre></td></tr></table></figure>
+<h3 id="5-安装python">5.安装python</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ brew install python --framework --universal</span><br><span class="line">The –framework option tells it to build as a Framework, <span class="built_in">which</span> has some downstream niceties, and –universal builds a universal (<span class="number">32</span>/<span class="number">64</span> bit) version.</span><br></pre></td></tr></table></figure>
+<h3 id="6-将python加入path">6.将python加入path</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ nano ~/.bash_profile</span><br><span class="line"><span class="built_in">export</span> PATH=/usr/<span class="built_in">local</span>/share/python:<span class="variable">$PATH</span></span><br></pre></td></tr></table></figure>
+<h3 id="7-检查安装是否正确">7.检查安装是否正确</h3><p>此时，最好重启term。如果要确认修改是否正确，可以用which python和which easy_install查看python的路径是否正确。如果返回为</p>
+<p>/usr/local/bin/python<br>和</p>
+<p>/usr/local/share/python/easy_install<br>那么，安装正确</p>
+<h3 id="8-通过easy_install安装pip">8.通过easy_install安装pip</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ easy_install pip</span><br></pre></td></tr></table></figure>
+<h3 id="9-安装virtualenv_和_virtuanenvwarpper">9.安装virtualenv 和 virtuanenvwarpper</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ /usr/<span class="built_in">local</span>/share/python/pip install virtualenv</span><br><span class="line">$ /usr/<span class="built_in">local</span>/share/python/pip install virtualenvwrapper <span class="comment">##其实这个装不装已经无所谓了。</span></span><br></pre></td></tr></table></figure>
+<h3 id="10-建立和项目相关的env">10.建立和项目相关的env</h3><p>比如，项目文件在~/projects中,那么，<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> ~/projects</span><br><span class="line">$ virtualenv --no-site-packages project_name</span><br><span class="line">The --no-site-packages flag is deprecated; it is now the default behavior.</span><br><span class="line">New python executable <span class="keyword">in</span> project_name/bin/python</span><br><span class="line">Installing setuptools............done.</span><br><span class="line">Installing pip...............done.</span><br></pre></td></tr></table></figure></p>
+<h3 id="11-启动虚拟环境">11.启动虚拟环境</h3><p>首先进入刚刚建立的虚拟环境目录，比如：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> project_name</span><br><span class="line">$ <span class="built_in">source</span> bin/activate</span><br></pre></td></tr></table></figure></p>
+<p>注意，此时shell提示符前多了虚拟环境的名称提示：<br>(project_name)….$<br>Now,do anything you want.</p>
+<h3 id="12-退出虚拟环境">12.退出虚拟环境</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ deactivate</span><br></pre></td></tr></table></figure>
+<h3 id="13-pip的设定">13.pip的设定</h3><p>如果要保证在虚拟环境中调用系统的pip,可以在~/.bash_profile里加上：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> PIP_REQUIRE_VIRTUALENV=<span class="literal">true</span></span><br></pre></td></tr></table></figure></p>
+<p>如果要让系统的pip自动调用虚拟环境中的pip<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> PIP_RESPECT_VIRTUALENV=<span class="literal">true</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="14-安装你需要的软件包（注意提示符）">14.安装你需要的软件包（注意提示符）</h3><p>(project_name)….$ pip install pkg_name<br>【END】</p>
+<hr>
+<p>ttp://matrix.windhunter.net/blog/2012/01/setup-python-env-on-lion-471.html</p>
+
+    </div>
+    <footer>
+        
+  
+  <div class="categories">
+    <a href="/categories/python/">python</a>
+  </div>
+
+        
+  
+  <div class="tags">
+    <a href="/tags/python/">python</a>, <a href="/tags/开发环境/">开发环境</a>
+  </div>
+
+		<div class="bdsharebuttonbox">
+	<a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a>
+	<a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+	<a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博"></a>
+	<a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网"></a>
+	<a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+	<a href="#" class="bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+	<a href="#" class="bds_twi" data-cmd="twi" title="分享到Twitter"></a>
+	<a href="#" class="bds_more" data-cmd="more"></a>
+	<a href="#" class="bds_count" data-cmd="count"></a>
+</div>
+<script>
+window._bd_share_config=
+{
+	"common":{
+		"bdSnsKey":{},
+		"bdText":"",
+		"bdMini":"2",
+		"bdMiniList":false,
+		"bdPic":"",
+		"bdStyle":"0",
+		"bdSize":"24"
+	},
+	"share":{},
+	"image":{
+		"viewList":["qzone","tsina","tqq","renren","weixin","fbook","twi"],
+		"viewText":"分享到：",
+		"viewSize":"24"
+	},
+	"selectShare":{
+		"bdContainerClass":null,
+		"bdSelectMiniList":["qzone","tsina","tqq","renren","weixin","fbook","twi"]
+	}
+};
+with(document)0[
+	(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)
+];
+</script>    
+        <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+ <nav id="pagination" >
+    
+    <a href="/2015/11/08/awk-log/" class="alignleft prev" title="awk 日志处理">awk 日志处理</a>
+    
+    
+    <a href="/2015/11/08/my-ago-books/" class="alignright next" title="我的算法图书">我的算法图书</a>
+    
+    <div class="clearfix"></div>
+</nav>
+
+
+
+	
+	<section id="comment">
+		<!-- 多说评论框 start -->
+		<div class="ds-thread" data-thread-key="2015/11/08/python-mac-start-env/" data-title="Mac中基于Homebrew搭建python开发环境" data-url="http://yoursite.com/2015/11/08/python-mac-start-env/"></div>
+		<!-- 多说评论框 end -->
+		<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+		<script type="text/javascript">
+		var duoshuoQuery = {short_name:"oracle1521"};
+		(function() {
+			var ds = document.createElement('script');
+			ds.type = 'text/javascript';ds.async = true;
+			ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+			ds.charset = 'UTF-8';
+			(document.getElementsByTagName('head')[0] 
+			 || document.getElementsByTagName('body')[0]).appendChild(ds);
+		})();
+		</script>
+		<!-- 多说公共JS代码 end -->
+	</section>
+	
+</div></div>
+    <aside id="sidebar" class="alignright">
+  <div class="search">
+  <form action="//google.com/search" method="get" accept-charset="utf-8">
+    <input type="search" name="q" results="0" placeholder="搜索">
+    <input type="hidden" name="q" value="site:yoursite.com">
+  </form>
+</div>
+
+  
+<div class="widget tag">
+  <h3 class="title">分类</h3>
+  <ul class="entry">
+  
+    <li><a href="/categories/book/">book</a><small>1</small></li>
+  
+    <li><a href="/categories/python/">python</a><small>1</small></li>
+  
+    <li><a href="/categories/shell/">shell</a><small>2</small></li>
+  
+    <li><a href="/categories/数据科学/">数据科学</a><small>2</small></li>
+  
+  </ul>
+</div>
+
+
+  
+<div class="widget tagcloud">
+  <h3 class="title">标签云</h3>
+  <div class="entry">
+    <a href="/tags/awk/" style="font-size: 10px;">awk</a> <a href="/tags/linux/" style="font-size: 20px;">linux</a> <a href="/tags/python/" style="font-size: 10px;">python</a> <a href="/tags/r/" style="font-size: 20px;">r</a> <a href="/tags/shell/" style="font-size: 10px;">shell</a> <a href="/tags/开发环境/" style="font-size: 10px;">开发环境</a> <a href="/tags/数据挖掘/" style="font-size: 10px;">数据挖掘</a> <a href="/tags/算法/" style="font-size: 20px;">算法</a> <a href="/tags/读书/" style="font-size: 10px;">读书</a>
+  </div>
+</div>
+
+
+  
+<div class="widget">
+  <h3 class="title">最新文章</h3>
+  <ul class="entry list-unstyled">
+    
+      <li>
+        <a href="/2015/11/08/shell-basics/"  > <i class="mdi-editor-insert-drive-file"></i>常用的shell脚本记录</a>
+      </li>
+    
+      <li>
+        <a href="/2015/11/08/awk-log/"  > <i class="mdi-editor-insert-drive-file"></i>awk 日志处理</a>
+      </li>
+    
+      <li>
+        <a href="/2015/11/08/python-mac-start-env/"  > <i class="mdi-editor-insert-drive-file"></i>Mac中基于Homebrew搭建python开发环境</a>
+      </li>
+    
+      <li>
+        <a href="/2015/11/08/my-ago-books/"  > <i class="mdi-editor-insert-drive-file"></i>我的算法图书</a>
+      </li>
+    
+      <li>
+        <a href="/2015/11/08/r-ctree/"  > <i class="mdi-editor-insert-drive-file"></i>R语言实现之决策树</a>
+      </li>
+    
+  </ul>
+</div>
+
+
+
+  <div class="widget tag">
+<h3 class="title">友情链接</h3>
+<ul class="entry">
+<li><a href="http://opiece.me" title="Chillax's Blog" target="_blank">Chillax</a></li>
+</ul>
+</div>
+</aside>
+    <div class="clearfix"></div>
+  </div>
+  <footer id="footer"><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<section class="info">
+		<p> 当时不杂，未来不迎，既往不念 <br/>
+			轻巧键盘，静待回应</p>
+	</section>
+	 
+	<div class="social-font clearfix">
+		
+		<a href="http://weibo.com/443828553" target="_blank" title="weibo"></a>
+		
+		
+		
+		<a href="https://github.com/oracle1521" target="_blank" title="github"></a>
+		
+		
+		
+		
+		<a href="mailto:anduo@qq.com" target="_blank" class="icon-email" title="Email Me"></a>
+		
+	</div>
+		<p class="copyright">Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/huangjunhui/concise" target="_blank" title="Concise">Concise</a> © 2015 
+		
+		<a href="http://yoursite.com/about" target="_blank" title="anduo">anduo</a>
+		
+		</p>
+</div>
+</footer>
+  <script src="//libs.baidu.com/jquery/2.0.3/jquery.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/counter.js"></script>
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+<div id="totop" style="position:fixed;bottom:100px;right:10px;cursor: pointer;">
+<a title="返回顶部"><img src="/imgs/scrollup.png"/></a>
+</div>
+<script src="/js/totop.js"></script>
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+</body>
+</html>
+
+
