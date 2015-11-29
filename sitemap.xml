@@ -2,6 +2,11 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/2015/11/08/r-ctree/</loc>
+    <lastmod>2015-11-29T12:11:45.000Z</lastmod>
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/2015/11/08/my-ago-books/</loc>
     <lastmod>2015-11-29T12:08:08.000Z</lastmod>
   </url>
@@ -14,11 +19,6 @@
   <url>
     <loc>http://yoursite.com/2015/11/08/r-basics/</loc>
     <lastmod>2015-11-08T14:42:54.000Z</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2015/11/08/r-ctree/</loc>
-    <lastmod>2015-11-08T14:37:07.000Z</lastmod>
   </url>
   
   <url>
