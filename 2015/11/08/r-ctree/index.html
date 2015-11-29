@@ -89,7 +89,7 @@
     </p>
   <p class="article-time">
     <time datetime="2015-11-07T19:07:43.000Z" itemprop="datePublished">2015-11-08</time>
-    更新日期:<time datetime="2015-11-29T12:11:45.000Z" itemprop="dateModified">2015-11-29</time>
+    更新日期:<time datetime="2015-11-29T12:13:16.000Z" itemprop="dateModified">2015-11-29</time>
     
   </p>
 </header>
@@ -100,7 +100,7 @@
 				<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#导入构建决策树所需要的库"><span class="toc-number">1.</span> <span class="toc-text">导入构建决策树所需要的库</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#查看本次构建决策树所用的数据源"><span class="toc-number">2.</span> <span class="toc-text">查看本次构建决策树所用的数据源</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#函数构建决策树"><span class="toc-number">3.</span> <span class="toc-text">函数构建决策树</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#查看决策树的具体信息"><span class="toc-number">4.</span> <span class="toc-text">查看决策树的具体信息</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#决策树案例拟合图"><span class="toc-number">5.</span> <span class="toc-text">决策树案例拟合图</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#绘制构建完的决策树图"><span class="toc-number">6.</span> <span class="toc-text">绘制构建完的决策树图</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#未剪枝的决策树图"><span class="toc-number">7.</span> <span class="toc-text">未剪枝的决策树图</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#决策树案例拟合图-1"><span class="toc-number">8.</span> <span class="toc-text">决策树案例拟合图</span></a></li></ol>
 			</div>
 		
-        <p><img src="http://i5.tietuku.com/4dd52e4d35bcae0f.jpg" alt="决策树"></p>
+        <p><img src="http://i5.tietuku.com/4dd52e4d35bcae0f.jpg" width="67.5%"></p>
 <p>决策树是附加概率结果的一个树状的决策图，是直观的运用统计概率分析的图法。机器学习中决策树是一个预测模型，它表示对象属性和对象值之间的一种映射，树中的每一个节点表示对象属性的判断条件，其分支表示符合节点条件的对象。树的叶子节点表示对象所属的预测结果。</p>
 <p>这一节学习使用包<code>party</code>里面的函数ctree()为数据集iris建立一个<code>决策树</code>。属性<code>Sepal.Length</code>（萼片长度）、<code>Sepal.Width</code>（萼片宽度）、<code>Petal.Length</code>（花瓣长度）以及<code>Petal.Width</code>（花瓣宽度）被用来预测鸢尾花的<code>Species</code>（种类）。在这个包里面，函数ctree()建立了一个决策树，predict()预测另外一个数据集。</p>
 <p>在建立模型之前，iris（鸢尾花）数据集被分为两个子集：训练集（70%）和测试集（30%）。使用随机种子设置固定的随机数，可以使得随机选取的数据是可重复利用的。</p>
