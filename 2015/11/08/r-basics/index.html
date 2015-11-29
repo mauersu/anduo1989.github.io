@@ -1,14 +1,113 @@
-<!DOCTYPE html><html><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><title> R语言基础知识 · 攻城狮笔记</title><meta name="description" content="轻巧键盘，静待回音"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="shortcut icon" href="/favicon.ico"><link rel="stylesheet" href="/css/jekyll.css"><!--[if lt IE 9]>
-<script src="js/html5shiv.min.js"></script>
-<script src="js/respond.min.js"></script>
-<![endif]--></head><body><header class="row-flex-row limit-width vh-center"><a href="/" class="logo"><img src="/favicon.png"></a><nav><ul class="nav-list"><li class="nav-list-item"><a href="/" class="nav-link">主页</a></li><li class="nav-list-item"><a href="/archives/" class="nav-link active">   博客</a></li><li class="nav-list-item"><a href="/read/" class="nav-link">阅读</a></li><li class="nav-list-item"><a href="/atom.xml" class="nav-link">rss</a></li><li class="nav-list-item"><a href="https://github.com/oracle1521" target="_blank" class="nav-link">   github</a></li></ul></nav></header><div class="container limit-width"><section class="row-flex-row"><div class="post"><article class="post-block"><h2 class="post-title"><a href="/2015/11/08/r-basics/" class="post-title-link">R语言基础知识</a></h2><div class="post-meta"><ul class="post-tag-list"><li class="post-tag-item"><a href="/tags/r/" class="post-tag-link">r</a></li></ul><div class="post-time">Sunday, November 8th 2015</div></div><div class="post-content"><p>R语言作为统计学一门语言，一直在小众领域闪耀着光芒。直到大数据的爆发，R语言变成了一门炙手可热的数据分析的利器。随着越来越多的工程背景的人的加入，R语言的社区在迅速扩大成长。现在已不仅仅是统计领域，教育，银行，电商，互联网….都在使用R语言。</p>
+
+
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script type="text/javascript" src="http://tajs.qq.com/stats?sId=443828553" charset="UTF-8"></script>
+  <script>
+	var _hmt = _hmt || [];
+	(function() {
+	  var hm = document.createElement("script");
+	  hm.src = "//hm.baidu.com/hm.js?7192fa361f5cabb11d8a22de41c1ba8f";
+	  var s = document.getElementsByTagName("script")[0]; 
+	  s.parentNode.insertBefore(hm, s);
+	})();
+	</script>
+  
+  <title>R语言基础知识 | 攻城狮笔记</title>
+  <meta name="author" content="anduo">
+  
+  <meta name="description" content="轻巧键盘，静待回音">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="R语言基础知识"/>
+  <meta property="og:site_name" content="攻城狮笔记"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+  <link href="/imgs/favicon.ico" rel="icon" type="image/x-ico">
+  <link rel="alternate" href="/atom.xml" title="攻城狮笔记" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  <script src="//libs.baidu.com/jquery/1.8.0/jquery.min.js"></script>
+</head>
+
+
+<body>
+  <header><div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/imgs/logo.png" alt="攻城狮笔记" title="攻城狮笔记"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name">攻城狮笔记</h1>
+				<h2 class="blog-motto">程序猿开荒野史</h2>
+			</div>
+			<nav class="animated">
+				<ul>
+					
+						<li><a href="/">Home</a></li>
+					
+						<li><a href="/archives">Archives</a></li>
+					
+						<li><a href="/about">About</a></li>
+					
+					<li> <a href="/atom.xml">RSS</a> </li>
+				</ul>
+			</nav>			
+</div>
+</header>
+  <div id="content" class="inner">
+    <div id="main-col" class="alignleft"><div id="wrapper"><article class="post">
+  
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
+  <div class="post-content">
+    <header class="article-info clearfix">
+  <h1 itemprop="name">
+	R语言基础知识
+  </h1>
+  <p class="article-author">By
+    
+      <a href="http://yoursite.com" title="anduo">anduo</a>
+    </p>
+  <p class="article-time">
+    <time datetime="2015-11-07T17:25:14.000Z" itemprop="datePublished">2015-11-08</time>
+    更新日期:<time datetime="2015-11-08T14:42:54.000Z" itemprop="dateModified">2015-11-08</time>
+    
+  </p>
+</header>
+    <div class="entry">
+		
+			<div id="toc" class="toc-article">
+				<strong class="toc-title">文章目录</strong>
+				<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#目录"><span class="toc-number">1.</span> <span class="toc-text">目录</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#显示内容"><span class="toc-number">2.</span> <span class="toc-text">显示内容</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#问题"><span class="toc-number">2.1.</span> <span class="toc-text">问题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#解决方案"><span class="toc-number">2.2.</span> <span class="toc-text">解决方案</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#讨论"><span class="toc-number">2.3.</span> <span class="toc-text">讨论</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#设定变量"><span class="toc-number">3.</span> <span class="toc-text">设定变量</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#问题-1"><span class="toc-number">3.1.</span> <span class="toc-text">问题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#解决方案-1"><span class="toc-number">3.2.</span> <span class="toc-text">解决方案</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#讨论-1"><span class="toc-number">4.</span> <span class="toc-text">讨论</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#列出所有变量"><span class="toc-number">5.</span> <span class="toc-text">列出所有变量</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#问题-2"><span class="toc-number">5.1.</span> <span class="toc-text">问题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#解决方案-2"><span class="toc-number">5.2.</span> <span class="toc-text">解决方案</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#讨论-2"><span class="toc-number">5.3.</span> <span class="toc-text">讨论</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#删除变量"><span class="toc-number">6.</span> <span class="toc-text">删除变量</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#问题-3"><span class="toc-number">6.1.</span> <span class="toc-text">问题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#解决方案-3"><span class="toc-number">6.2.</span> <span class="toc-text">解决方案</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#讨论-3"><span class="toc-number">6.3.</span> <span class="toc-text">讨论</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#生成向量"><span class="toc-number">7.</span> <span class="toc-text">生成向量</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#问题-4"><span class="toc-number">7.1.</span> <span class="toc-text">问题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#解决方案-4"><span class="toc-number">7.2.</span> <span class="toc-text">解决方案</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#讨论-4"><span class="toc-number">7.3.</span> <span class="toc-text">讨论</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#计算基本统计量"><span class="toc-number">8.</span> <span class="toc-text">计算基本统计量</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#问题-5"><span class="toc-number">8.1.</span> <span class="toc-text">问题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#解决方案-5"><span class="toc-number">8.2.</span> <span class="toc-text">解决方案</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#讨论-5"><span class="toc-number">8.3.</span> <span class="toc-text">讨论</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#生成数列"><span class="toc-number">9.</span> <span class="toc-text">生成数列</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#问题-6"><span class="toc-number">9.1.</span> <span class="toc-text">问题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#解决方案-6"><span class="toc-number">9.2.</span> <span class="toc-text">解决方案</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#讨论-6"><span class="toc-number">9.3.</span> <span class="toc-text">讨论</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#向量比较"><span class="toc-number">10.</span> <span class="toc-text">向量比较</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#问题-7"><span class="toc-number">10.1.</span> <span class="toc-text">问题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#解决方案-7"><span class="toc-number">10.2.</span> <span class="toc-text">解决方案</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#讨论-7"><span class="toc-number">10.3.</span> <span class="toc-text">讨论</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#选取向量中的元素"><span class="toc-number">11.</span> <span class="toc-text">选取向量中的元素</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#问题:如何选取向量中一个或多个元素。"><span class="toc-number">11.1.</span> <span class="toc-text">问题:如何选取向量中一个或多个元素。</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#解决方案-8"><span class="toc-number">11.2.</span> <span class="toc-text">解决方案</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#讨论-8"><span class="toc-number">11.3.</span> <span class="toc-text">讨论</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#向量的计算"><span class="toc-number">12.</span> <span class="toc-text">向量的计算</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#问题-8"><span class="toc-number">12.1.</span> <span class="toc-text">问题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#解决方案-9"><span class="toc-number">12.2.</span> <span class="toc-text">解决方案</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#讨论-9"><span class="toc-number">12.3.</span> <span class="toc-text">讨论</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#运算符优先级问题"><span class="toc-number">13.</span> <span class="toc-text">运算符优先级问题</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#问题-9"><span class="toc-number">13.1.</span> <span class="toc-text">问题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#解决方案-10"><span class="toc-number">13.2.</span> <span class="toc-text">解决方案</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#讨论-10"><span class="toc-number">13.3.</span> <span class="toc-text">讨论</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#定义函数"><span class="toc-number">14.</span> <span class="toc-text">定义函数</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#问题-10"><span class="toc-number">14.1.</span> <span class="toc-text">问题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#解决方案-11"><span class="toc-number">14.2.</span> <span class="toc-text">解决方案</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#讨论-11"><span class="toc-number">14.3.</span> <span class="toc-text">讨论</span></a></li></ol></li></ol>
+			</div>
+		
+        <p>R语言作为统计学一门语言，一直在小众领域闪耀着光芒。直到大数据的爆发，R语言变成了一门炙手可热的数据分析的利器。随着越来越多的工程背景的人的加入，R语言的社区在迅速扩大成长。现在已不仅仅是统计领域，教育，银行，电商，互联网….都在使用R语言。</p>
 <p>R语言是在大数据时代被工业界了解和认识的语言，R语言被时代赋予了，挖掘数据价值，发现数据规律，创造数据财富的任务。</p>
 <p>R语言也是帮助人们发挥智慧和创造力的最好的生产工具，我们不仅要学好R语言，还要用好R语言，为社会注入更多的创新的生产力。</p>
-<p><img src="http://www.idatacamp.com/wordpress/wp-content/uploads/2015/09/14210N40130-194U.jpg"></p>
+<p><img src="http://www.idatacamp.com/wordpress/wp-content/uploads/2015/09/14210N40130-194U.jpg" width="67.5%"></p>
 <p>我认为“R是最值得学习的编程语言”。不论你还在读书，还是已经工作，掌握R语言这个工具，找最适合自己的位置，前途将无限量。</p>
 <p>本文主要记录了笔者自学R的基础知识点，这里直介绍R的基础入门知识，全文使用RStudio操作</p>
 <a id="more"></a>
-<h3 id="目录">目录</h3><ul>
+<h2 id="目录">目录</h2><ul>
 <li>显示内容</li>
 <li>设置变量</li>
 <li>生成向量</li>
@@ -17,10 +116,44 @@
 <li>向量比较、操作</li>
 <li>函数定义</li>
 </ul>
-<div class="note"><br>  <h5>显示内容</h5><br>  <p>问题:如何通过R软件显示某一变量或表达式的值。</p><br></div><br>### 解决方案<br><br>在提示符后直接输入变量名或表达式，R软件便会直接在屏幕中输出其值。使用print函数能输出所有的变量和表达式值，使用cat函数则能选择以用户自定义的格式显示对象的值。<br><br>### 讨论<br><br>通过R软件显示结果的步骤很简单：只需在提示符后输入变量名或表达式：<br><br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt; pi</span><br><span class="line">[<span class="number">1</span>] <span class="number">3.141593</span></span><br><span class="line">&gt; <span class="built_in">sqrt</span>(<span class="number">2</span>)</span><br><span class="line">[<span class="number">1</span>] <span class="number">1.414214</span></span><br></pre></td></tr></table></figure><br><br>当输入如上表达式后，R软件会对表达式进行计算并自动调用print函数显示结果。因此上述命令等同于如下命令：<br><br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt; print(pi)</span><br><span class="line">[<span class="number">1</span>] <span class="number">3.141593</span></span><br><span class="line">&gt; print(<span class="built_in">sqrt</span>(<span class="number">2</span>))</span><br><span class="line">[<span class="number">1</span>] <span class="number">1.414214</span></span><br></pre></td></tr></table></figure><br><br>print函数的优点在于它知道该以何种格式显示结果，包括一些具有格式的变量，如矩阵和列表：<br><br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&gt; print(matrix(c(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>), <span class="number">2</span>, <span class="number">2</span>))</span><br><span class="line">     [,<span class="number">1</span>] [,<span class="number">2</span>]</span><br><span class="line">[<span class="number">1</span>,]    <span class="number">1</span>    <span class="number">3</span></span><br><span class="line">[<span class="number">2</span>,]    <span class="number">2</span>    <span class="number">4</span></span><br><span class="line">&gt; print(<span class="built_in">list</span>(<span class="string">"a"</span>,<span class="string">"b"</span>,<span class="string">"c"</span>))</span><br><span class="line">[[<span class="number">1</span>]]</span><br><span class="line">[<span class="number">1</span>] <span class="string">"a"</span></span><br><span class="line">[[<span class="number">2</span>]]</span><br><span class="line">[<span class="number">1</span>] <span class="string">"b"</span></span><br><span class="line">[[<span class="number">3</span>]]</span><br><span class="line">[<span class="number">1</span>] <span class="string">"c"</span></span><br></pre></td></tr></table></figure><br><br>这一命令很常用，因为你可以随时通过print函数显示数据，而不必在意数据显示的顺序与逻辑，即使对如矩阵这样复杂的数据格式也是如此。<br><br>但print函数也有其局限性：print函数每次只能显示一个对象。同时显示多个变量会得到如下结果：<br><br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt; <span class="function"><span class="title">print</span><span class="params">(<span class="string">"The zero occurs at"</span>, <span class="number">2</span>*pi, <span class="string">"radians."</span>)</span></span></span><br><span class="line">Error <span class="keyword">in</span> print.<span class="function"><span class="title">default</span><span class="params">(<span class="string">"The zero occurs at"</span>, <span class="number">2</span> * pi, <span class="string">"radians."</span>)</span></span> :  unimplemented type <span class="string">'character'</span> <span class="keyword">in</span> <span class="string">'asLogical'</span></span><br></pre></td></tr></table></figure><br><br>只有通过多次使用print函数才能显示多个对象，但用户往往会认为这种方法过于繁琐：<br><br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt; print(<span class="string">"The zero occurs at"</span>); print(<span class="number">2</span>*pi); print(<span class="string">"radians"</span>)</span><br><span class="line">[<span class="number">1</span>] <span class="string">"The zero occurs at"</span></span><br><span class="line">[<span class="number">1</span>] <span class="number">6.283185</span></span><br><span class="line">[<span class="number">1</span>] <span class="string">"radians"</span></span><br></pre></td></tr></table></figure><br><br>cat函数是另外一种可以替代print的显示方式。它可以将多个对象连接并以连续的方式显示：<br><br><figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt; cat(<span class="string">"The zero occurs at"</span>, <span class="number">2</span>*<span class="constant">pi</span>, <span class="string">"radians."</span>, <span class="string">"\n"</span>)</span><br><span class="line">The <span class="constant">zero</span> occurs <span class="keyword">at</span> <span class="number">6.283185</span> radians.</span><br></pre></td></tr></table></figure><br><br><code>注意</code>，cat函数默认在两个对象间加上空格。如果需要换行，则可以使用换行符（\n）来结束本行语句。<br><br>cat函数也能显示简单向量：<br><br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt; fib &lt;- c(<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">5</span>,<span class="number">8</span>,<span class="number">13</span>,<span class="number">21</span>,<span class="number">34</span>)</span><br><span class="line">&gt; cat(<span class="string">"The first few Fibonacci numbers are:"</span>, fib, <span class="string">"...\n"</span>)</span><br><span class="line">The first few Fibonacci numbers are: <span class="number">0</span> <span class="number">1</span> <span class="number">1</span> <span class="number">2</span> <span class="number">3</span> <span class="number">5</span> <span class="number">8</span> <span class="number">13</span> <span class="number">21</span> <span class="number">34</span> ...</span><br></pre></td></tr></table></figure><br><br>cat函数对变量的输出有更多的控制和选择，这在R程序中尤为重要。但它也有缺陷，即cat函数无法显示复合的数据结构，如矩阵和列表。用cat函数显示列表会得到以下结果：<br><br><figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt; <span class="keyword">cat</span>(<span class="keyword">list</span>(<span class="string">"a"</span>,<span class="string">"b"</span>,<span class="string">"c"</span>))</span><br><span class="line"><span class="keyword">Error</span> <span class="keyword">in</span> <span class="keyword">cat</span>(<span class="keyword">list</span>(...), <span class="keyword">file</span>, sep, fill, labels, <span class="keyword">append</span>) :</span><br><span class="line">argument 1 (<span class="keyword">type</span> <span class="keyword">list</span>) cannot be handled <span class="keyword">by</span> <span class="keyword">cat</span></span><br></pre></td></tr></table></figure><br><br><div class="note unreleased"><br>  <h5>设定变量</h5><br>  <p>问题:如何将某个值赋值给一个变量。</p><br></div><br>### 解决方案<br><br>使用赋值运算符（&lt;-）进行赋值。在赋值前无须对变量进行声明：<br><br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt; x &lt;- <span class="number">3</span></span><br></pre></td></tr></table></figure><br><br>## 讨论<br><br>R软件采用“计算器”模式，方便快捷。但是，有时候需要定义变量并保存变量值。这省去了重复输入的时间并使你的工作更为明晰。<br><br>在R软件中，不必对变量进行声明或者显式地创建变量，只需要将值赋予一个名称，R软件就会自动生成该名称的变量：<br><br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&gt; x &lt;- <span class="number">3</span></span><br><span class="line">&gt; y &lt;- <span class="number">4</span></span><br><span class="line">&gt; z &lt;- <span class="built_in">sqrt</span>(x^<span class="number">2</span> + y^<span class="number">2</span>)</span><br><span class="line">&gt; print(z)</span><br><span class="line">[<span class="number">1</span>] <span class="number">5</span></span><br></pre></td></tr></table></figure><br><br><code>注意</code>，赋值操作由一个小于号（&lt;）和连字符（-）构成，两个符号之间没有空格。<br><br>当使用此种方法定义变量时，该变量将存储到当前的工作空间中。此时工作空间仅存储在计算机的内存中，当退出R软件时可保存至本地硬盘。工作空间会永久保存该变量，直至用户删除或替代该变量。<br><br>R软件是动态的输入语言，即可随意改变变量的数据类型。我们可以先定义x为数值型变量，随后马上对其赋值一个字符串向量，在这一过程中R软件能完全理解用户的意图：<br><br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&gt;  x &lt;- <span class="number">3</span></span><br><span class="line">&gt; <span class="function"><span class="title">print</span><span class="params">(x)</span></span></span><br><span class="line">[<span class="number">1</span>] <span class="number">3</span></span><br><span class="line">&gt; x &lt;- <span class="function"><span class="title">c</span><span class="params">(<span class="string">"fee"</span>, <span class="string">"fie"</span>, <span class="string">"foe"</span>, <span class="string">"fum"</span>)</span></span></span><br><span class="line">&gt; <span class="function"><span class="title">print</span><span class="params">(x)</span></span></span><br><span class="line">[<span class="number">1</span>] <span class="string">"fee"</span> <span class="string">"fie"</span> <span class="string">"foe"</span> <span class="string">"fum"</span></span><br></pre></td></tr></table></figure><br><br>在某些R函数中，你会看到很特别的赋值符号&lt;&lt;-：<br><br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">x &lt;&lt;- <span class="number">3</span></span><br></pre></td></tr></table></figure><br><br>这一操作能强制赋值给一个全局变量，而不是局部变量。<br><br>为了全面介绍，在此给出另外两种赋值形式。也可以在命令提示符中使用单个等号（=）对变量进行赋值。在所有可以应用向左赋值符号（&lt;-）的地方都可以使用向右赋值符号（-&gt;），它对右侧变量进行赋值：<br><br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&gt; foo = <span class="number">3</span></span><br><span class="line">&gt; print(foo)</span><br><span class="line">[<span class="number">1</span>] <span class="number">3</span></span><br><span class="line">&gt; <span class="number">5</span> -&gt; fum</span><br><span class="line">&gt; print(fum)</span><br><span class="line">[<span class="number">1</span>] <span class="number">5</span></span><br></pre></td></tr></table></figure><br><br><div class="note unreleased"><br><h5>列出所有变量</h5><br><p>问题:<br>你希望知道目前工作空间中存在哪些已定义的变量和函数。<br></p></div>
-
-<h3 id="解决方案">解决方案</h3><p>使用ls函数，或者使用ls.str函数了解每个变量更详细的信息。</p>
-<h3 id="讨论">讨论</h3><p>ls函数可以显示当前工作空间中所有对象的名称：</p>
+<h2 id="显示内容">显示内容</h2><h3 id="问题">问题</h3><p>如何通过R软件显示某一变量或表达式的值。</p>
+<h3 id="解决方案">解决方案</h3><p>在提示符后直接输入变量名或表达式，R软件便会直接在屏幕中输出其值。使用print函数能输出所有的变量和表达式值，使用cat函数则能选择以用户自定义的格式显示对象的值。</p>
+<h3 id="讨论">讨论</h3><p>通过R软件显示结果的步骤很简单：只需在提示符后输入变量名或表达式：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt; pi</span><br><span class="line">[<span class="number">1</span>] <span class="number">3.141593</span></span><br><span class="line">&gt; <span class="built_in">sqrt</span>(<span class="number">2</span>)</span><br><span class="line">[<span class="number">1</span>] <span class="number">1.414214</span></span><br></pre></td></tr></table></figure>
+<p>当输入如上表达式后，R软件会对表达式进行计算并自动调用print函数显示结果。因此上述命令等同于如下命令：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt; print(pi)</span><br><span class="line">[<span class="number">1</span>] <span class="number">3.141593</span></span><br><span class="line">&gt; print(<span class="built_in">sqrt</span>(<span class="number">2</span>))</span><br><span class="line">[<span class="number">1</span>] <span class="number">1.414214</span></span><br></pre></td></tr></table></figure>
+<p>print函数的优点在于它知道该以何种格式显示结果，包括一些具有格式的变量，如矩阵和列表：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&gt; print(matrix(c(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>), <span class="number">2</span>, <span class="number">2</span>))</span><br><span class="line">     [,<span class="number">1</span>] [,<span class="number">2</span>]</span><br><span class="line">[<span class="number">1</span>,]    <span class="number">1</span>    <span class="number">3</span></span><br><span class="line">[<span class="number">2</span>,]    <span class="number">2</span>    <span class="number">4</span></span><br><span class="line">&gt; print(<span class="built_in">list</span>(<span class="string">"a"</span>,<span class="string">"b"</span>,<span class="string">"c"</span>))</span><br><span class="line">[[<span class="number">1</span>]]</span><br><span class="line">[<span class="number">1</span>] <span class="string">"a"</span></span><br><span class="line">[[<span class="number">2</span>]]</span><br><span class="line">[<span class="number">1</span>] <span class="string">"b"</span></span><br><span class="line">[[<span class="number">3</span>]]</span><br><span class="line">[<span class="number">1</span>] <span class="string">"c"</span></span><br></pre></td></tr></table></figure>
+<p>这一命令很常用，因为你可以随时通过print函数显示数据，而不必在意数据显示的顺序与逻辑，即使对如矩阵这样复杂的数据格式也是如此。</p>
+<p>但print函数也有其局限性：print函数每次只能显示一个对象。同时显示多个变量会得到如下结果：</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt; <span class="function"><span class="title">print</span><span class="params">(<span class="string">"The zero occurs at"</span>, <span class="number">2</span>*pi, <span class="string">"radians."</span>)</span></span></span><br><span class="line">Error <span class="keyword">in</span> print.<span class="function"><span class="title">default</span><span class="params">(<span class="string">"The zero occurs at"</span>, <span class="number">2</span> * pi, <span class="string">"radians."</span>)</span></span> :  unimplemented type <span class="string">'character'</span> <span class="keyword">in</span> <span class="string">'asLogical'</span></span><br></pre></td></tr></table></figure>
+<p>只有通过多次使用print函数才能显示多个对象，但用户往往会认为这种方法过于繁琐：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt; print(<span class="string">"The zero occurs at"</span>); print(<span class="number">2</span>*pi); print(<span class="string">"radians"</span>)</span><br><span class="line">[<span class="number">1</span>] <span class="string">"The zero occurs at"</span></span><br><span class="line">[<span class="number">1</span>] <span class="number">6.283185</span></span><br><span class="line">[<span class="number">1</span>] <span class="string">"radians"</span></span><br></pre></td></tr></table></figure>
+<p>cat函数是另外一种可以替代print的显示方式。它可以将多个对象连接并以连续的方式显示：</p>
+<figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt; cat(<span class="string">"The zero occurs at"</span>, <span class="number">2</span>*<span class="constant">pi</span>, <span class="string">"radians."</span>, <span class="string">"\n"</span>)</span><br><span class="line">The <span class="constant">zero</span> occurs <span class="keyword">at</span> <span class="number">6.283185</span> radians.</span><br></pre></td></tr></table></figure>
+<p><code>注意</code>，cat函数默认在两个对象间加上空格。如果需要换行，则可以使用换行符（\n）来结束本行语句。</p>
+<p>cat函数也能显示简单向量：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt; fib &lt;- c(<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">5</span>,<span class="number">8</span>,<span class="number">13</span>,<span class="number">21</span>,<span class="number">34</span>)</span><br><span class="line">&gt; cat(<span class="string">"The first few Fibonacci numbers are:"</span>, fib, <span class="string">"...\n"</span>)</span><br><span class="line">The first few Fibonacci numbers are: <span class="number">0</span> <span class="number">1</span> <span class="number">1</span> <span class="number">2</span> <span class="number">3</span> <span class="number">5</span> <span class="number">8</span> <span class="number">13</span> <span class="number">21</span> <span class="number">34</span> ...</span><br></pre></td></tr></table></figure>
+<p>cat函数对变量的输出有更多的控制和选择，这在R程序中尤为重要。但它也有缺陷，即cat函数无法显示复合的数据结构，如矩阵和列表。用cat函数显示列表会得到以下结果：</p>
+<figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt; <span class="keyword">cat</span>(<span class="keyword">list</span>(<span class="string">"a"</span>,<span class="string">"b"</span>,<span class="string">"c"</span>))</span><br><span class="line"><span class="keyword">Error</span> <span class="keyword">in</span> <span class="keyword">cat</span>(<span class="keyword">list</span>(...), <span class="keyword">file</span>, sep, fill, labels, <span class="keyword">append</span>) :</span><br><span class="line">argument 1 (<span class="keyword">type</span> <span class="keyword">list</span>) cannot be handled <span class="keyword">by</span> <span class="keyword">cat</span></span><br></pre></td></tr></table></figure>
+<h2 id="设定变量">设定变量</h2><h3 id="问题-1">问题</h3><p>如何将某个值赋值给一个变量。</p>
+<h3 id="解决方案-1">解决方案</h3><p>使用赋值运算符（&lt;-）进行赋值。在赋值前无须对变量进行声明：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt; x &lt;- <span class="number">3</span></span><br></pre></td></tr></table></figure>
+<h2 id="讨论-1">讨论</h2><p>R软件采用“计算器”模式，方便快捷。但是，有时候需要定义变量并保存变量值。这省去了重复输入的时间并使你的工作更为明晰。</p>
+<p>在R软件中，不必对变量进行声明或者显式地创建变量，只需要将值赋予一个名称，R软件就会自动生成该名称的变量：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&gt; x &lt;- <span class="number">3</span></span><br><span class="line">&gt; y &lt;- <span class="number">4</span></span><br><span class="line">&gt; z &lt;- <span class="built_in">sqrt</span>(x^<span class="number">2</span> + y^<span class="number">2</span>)</span><br><span class="line">&gt; print(z)</span><br><span class="line">[<span class="number">1</span>] <span class="number">5</span></span><br></pre></td></tr></table></figure>
+<p><code>注意</code>，赋值操作由一个小于号（&lt;）和连字符（-）构成，两个符号之间没有空格。</p>
+<p>当使用此种方法定义变量时，该变量将存储到当前的工作空间中。此时工作空间仅存储在计算机的内存中，当退出R软件时可保存至本地硬盘。工作空间会永久保存该变量，直至用户删除或替代该变量。</p>
+<p>R软件是动态的输入语言，即可随意改变变量的数据类型。我们可以先定义x为数值型变量，随后马上对其赋值一个字符串向量，在这一过程中R软件能完全理解用户的意图：</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&gt;  x &lt;- <span class="number">3</span></span><br><span class="line">&gt; <span class="function"><span class="title">print</span><span class="params">(x)</span></span></span><br><span class="line">[<span class="number">1</span>] <span class="number">3</span></span><br><span class="line">&gt; x &lt;- <span class="function"><span class="title">c</span><span class="params">(<span class="string">"fee"</span>, <span class="string">"fie"</span>, <span class="string">"foe"</span>, <span class="string">"fum"</span>)</span></span></span><br><span class="line">&gt; <span class="function"><span class="title">print</span><span class="params">(x)</span></span></span><br><span class="line">[<span class="number">1</span>] <span class="string">"fee"</span> <span class="string">"fie"</span> <span class="string">"foe"</span> <span class="string">"fum"</span></span><br></pre></td></tr></table></figure>
+<p>在某些R函数中，你会看到很特别的赋值符号&lt;&lt;-：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">x &lt;&lt;- <span class="number">3</span></span><br></pre></td></tr></table></figure>
+<p>这一操作能强制赋值给一个全局变量，而不是局部变量。</p>
+<p>为了全面介绍，在此给出另外两种赋值形式。也可以在命令提示符中使用单个等号（=）对变量进行赋值。在所有可以应用向左赋值符号（&lt;-）的地方都可以使用向右赋值符号（-&gt;），它对右侧变量进行赋值：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&gt; foo = <span class="number">3</span></span><br><span class="line">&gt; print(foo)</span><br><span class="line">[<span class="number">1</span>] <span class="number">3</span></span><br><span class="line">&gt; <span class="number">5</span> -&gt; fum</span><br><span class="line">&gt; print(fum)</span><br><span class="line">[<span class="number">1</span>] <span class="number">5</span></span><br></pre></td></tr></table></figure>
+<h2 id="列出所有变量">列出所有变量</h2><h3 id="问题-2">问题</h3><p>你希望知道目前工作空间中存在哪些已定义的变量和函数。</p>
+<h3 id="解决方案-2">解决方案</h3><p>使用ls函数，或者使用ls.str函数了解每个变量更详细的信息。</p>
+<h3 id="讨论-2">讨论</h3><p>ls函数可以显示当前工作空间中所有对象的名称：</p>
 <figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&gt; x &lt;- <span class="number">10</span></span><br><span class="line">&gt; y &lt;- <span class="number">50</span></span><br><span class="line">&gt; z &lt;- <span class="function"><span class="title">c</span><span class="params">(<span class="string">"three"</span>, <span class="string">"blind"</span>, <span class="string">"mice"</span>)</span></span></span><br><span class="line">&gt; f &lt;- <span class="function"><span class="title">function</span><span class="params">(n,p)</span></span> <span class="function"><span class="title">sqrt</span><span class="params">(p*(<span class="number">1</span>-p)</span></span>/n)</span><br><span class="line">&gt; <span class="function"><span class="title">ls</span><span class="params">()</span></span></span><br><span class="line">[<span class="number">1</span>] <span class="string">"f"</span> <span class="string">"x"</span> <span class="string">"y"</span> <span class="string">"z"</span></span><br></pre></td></tr></table></figure>
 <p><code>注意</code>，ls函数输出的结果是一个字符串向量，其中向量的每个元素代表一个变量名。当工作空间中没有已定义的变量时，函数ls会返回一个空向量，它会产生如下令人迷惑的结果：</p>
 <figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt; <span class="function"><span class="title">ls</span><span class="params">()</span></span></span><br><span class="line"><span class="function"><span class="title">character</span><span class="params">(<span class="number">0</span>)</span></span></span><br></pre></td></tr></table></figure>
@@ -30,10 +163,9 @@
 <p>ls.str函数之所以写为ls.str，原因在于其功能既显示了所有变量的名称，又对所有变量使用了str函数，方法12.15对此进行了详细的说明。</p>
 <p>ls函数不会显示以点（.）开头的变量名，以点开头的变量一般作为隐藏变量不为用户所知（这一输出规定来源于UNIX系统）。在R软件中，可以通过将ls.str函数中的all.names参数设定为TRUE，强制列出所有变量：</p>
 <figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&gt; <span class="class">.hidvar</span> &lt;- <span class="number">10</span></span><br><span class="line">&gt; <span class="function"><span class="title">ls</span><span class="params">()</span></span></span><br><span class="line">[<span class="number">1</span>] <span class="string">"f"</span> <span class="string">"x"</span> <span class="string">"y"</span> <span class="string">"z"</span></span><br><span class="line">&gt; <span class="function"><span class="title">ls</span><span class="params">(all.names=TRUE)</span></span></span><br><span class="line">[<span class="number">1</span>] <span class="string">".hidvar"</span> <span class="string">"f"</span>       <span class="string">"x"</span>       <span class="string">"y"</span>       <span class="string">"z"</span></span><br></pre></td></tr></table></figure>
-<div class="note unreleased"><br>  <h5>删除变量</h5><br>  <p>问题:你希望删除工作空间中不需要的变量和函数，或者完全删除它们的取值内容。</p><br></div>
-
-<h3 id="解决方案-1">解决方案</h3><p>使用rm函数。</p>
-<h3 id="讨论-1">讨论</h3><p>在R软件的使用过程中，工作空间容易很快变得杂乱。rm函数能永久地从工作空间中删除一个或多个对象：</p>
+<h2 id="删除变量">删除变量</h2><h3 id="问题-3">问题</h3><p>你希望删除工作空间中不需要的变量和函数，或者完全删除它们的取值内容。</p>
+<h3 id="解决方案-3">解决方案</h3><p>使用rm函数。</p>
+<h3 id="讨论-3">讨论</h3><p>在R软件的使用过程中，工作空间容易很快变得杂乱。rm函数能永久地从工作空间中删除一个或多个对象：</p>
 <figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&gt; x &lt;- <span class="number">2</span>*pi</span><br><span class="line">&gt; x</span><br><span class="line">[<span class="number">1</span>] <span class="number">6.283185</span></span><br><span class="line">&gt; <span class="function"><span class="title">rm</span><span class="params">(x)</span></span></span><br><span class="line">&gt; x</span><br><span class="line">Error: <span class="tag">object</span> <span class="string">"x"</span> not found</span><br></pre></td></tr></table></figure>
 <p>该命令无法“撤销”，即删除的变量无法找回。</p>
 <p>你可以通过如下命令同时删除多个变量：</p>
@@ -41,10 +173,9 @@
 <p>你甚至可以同时删除工作空间中所有的内容。rm函数中有一个list参数，它包含所有需要删除的变量名称。前面章节介绍过ls函数能返回所有变量名称，因此你可以通过结合rm函数与ls函数，删除工作空间中的所有变量：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&gt; ls()</span><br><span class="line">[<span class="number">1</span>] <span class="string">"f"</span> <span class="string">"x"</span> <span class="string">"y"</span> <span class="string">"z"</span></span><br><span class="line">&gt; rm(list=ls())</span><br><span class="line">&gt; ls()</span><br><span class="line">character(<span class="number">0</span>)</span><br></pre></td></tr></table></figure>
 <p><code>R软件的道德规范</code>在与他人共享代码时，绝不能将带有<code>rm(list=ls())</code>的恶意代码通过网络示例或者其他方法发送至他人。用此手段删除对方工作空间中所有的内容是如此粗鄙的行为，让你变得不受欢迎</p>
-<div class="note warning"><br>  <h5>生成向量</h5><br>  <p>问题:如何生成一个向量。</p><br></div>
-
-<h3 id="解决方案-2">解决方案</h3><p>通过<code>c(...)</code>命令对给定的值构建一个向量。</p>
-<h3 id="讨论-2">讨论</h3><p>向量不仅是R的一种数据结构，它还是贯通R软件的重要组成部分。向量中可以包含数值、字符串或者逻辑值，但不能由多种格式混合组成。</p>
+<h2 id="生成向量">生成向量</h2><h3 id="问题-4">问题</h3><p>如何生成一个向量。</p>
+<h3 id="解决方案-4">解决方案</h3><p>通过<code>c(...)</code>命令对给定的值构建一个向量。</p>
+<h3 id="讨论-4">讨论</h3><p>向量不仅是R的一种数据结构，它还是贯通R软件的重要组成部分。向量中可以包含数值、字符串或者逻辑值，但不能由多种格式混合组成。</p>
 <p>在<code>c(...)</code>命令中添加元素对向量进行赋值：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&gt; c(<span class="number">1</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">5</span>,<span class="number">8</span>,<span class="number">13</span>,<span class="number">21</span>)</span><br><span class="line">[<span class="number">1</span>]  <span class="number">1</span>  <span class="number">1</span>  <span class="number">2</span>  <span class="number">3</span>  <span class="number">5</span>  <span class="number">8</span> <span class="number">13</span> <span class="number">21</span></span><br><span class="line">&gt; c(<span class="number">1</span>*pi, <span class="number">2</span>*pi, <span class="number">3</span>*pi, <span class="number">4</span>*pi)</span><br><span class="line">[<span class="number">1</span>]  <span class="number">3.141593</span>  <span class="number">6.283185</span>  <span class="number">9.424778</span> <span class="number">12.566371</span></span><br><span class="line">&gt; c(<span class="string">"Everyone"</span>, <span class="string">"loves"</span>, <span class="string">"stats."</span>)</span><br><span class="line">[<span class="number">1</span>] <span class="string">"Everyone"</span> <span class="string">"loves"</span>    <span class="string">"stats."</span></span><br><span class="line">&gt; c(TRUE,TRUE,FALSE,TRUE)</span><br><span class="line">[<span class="number">1</span>]  TRUE  TRUE FALSE  TRUE</span><br></pre></td></tr></table></figure>
 <p>如果c(…) 中的参数自身是向量，那么c(…) 命令会将多个向量合为一个向量：</p>
@@ -57,11 +188,10 @@
 <p>上述两者的类型不同。为了生成新的向量，R软件将3.1415转换为字符类型，使得3.1415的类型与”foo”的类型一样：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt; c(<span class="number">3.1415</span>, <span class="string">"foo"</span>)</span><br><span class="line">[<span class="number">1</span>] <span class="string">"3.1415"</span> <span class="string">"foo"</span></span><br><span class="line">&gt; mode(c(<span class="number">3.1415</span>, <span class="string">"foo"</span>))</span><br><span class="line">[<span class="number">1</span>] <span class="string">"character"</span></span><br></pre></td></tr></table></figure>
 <p><code>警告</code>：c是一个通用的运算符，这意味着它不仅应用于向量，同时也应用于其他的数据类型。但是，它可能不是那么精确地与用户预期相一致。因此在将c命令用于其他数据类型和对象前，要查看它的效果。</p>
-<div class="note warning"><br>  <h5>计算基本统计量</h5><br>  <p>问题:如何使用R软件计算下列统计量：均值、中位数、标准差、方差、协方差和相关系数。</p><br></div>
-
-<h3 id="解决方案-3">解决方案</h3><p>采用如下函数进行计算，其中x、y均为向量：</p>
+<h2 id="计算基本统计量">计算基本统计量</h2><h3 id="问题-5">问题</h3><p>如何使用R软件计算下列统计量：均值、中位数、标准差、方差、协方差和相关系数。</p>
+<h3 id="解决方案-5">解决方案</h3><p>采用如下函数进行计算，其中x、y均为向量：</p>
 <figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="title">mean</span><span class="params">(x)</span></span></span><br><span class="line"><span class="function"><span class="title">median</span><span class="params">(x)</span></span></span><br><span class="line"><span class="function"><span class="title">sd</span><span class="params">(x)</span></span></span><br><span class="line"><span class="function"><span class="title">var</span><span class="params">(x)</span></span></span><br><span class="line"><span class="function"><span class="title">cor</span><span class="params">(x, y)</span></span></span><br><span class="line"><span class="function"><span class="title">cov</span><span class="params">(x, y)</span></span></span><br></pre></td></tr></table></figure>
-<h3 id="讨论-3">讨论</h3><p>我初次阅读R软件帮助文件是为了寻找“标准差的计算过程”这一内容，原本认为帮助文件会以一整章篇幅介绍这一重要概念。</p>
+<h3 id="讨论-5">讨论</h3><p>我初次阅读R软件帮助文件是为了寻找“标准差的计算过程”这一内容，原本认为帮助文件会以一整章篇幅介绍这一重要概念。</p>
 <p>实际上没有那么复杂。</p>
 <p>R软件中，用简单的函数便能完成标准差和其他基本统计量的计算。一般来说，函数参数是一个数值向量，而函数返回计算出的统计量：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&gt; x &lt;- c(<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">5</span>,<span class="number">8</span>,<span class="number">13</span>,<span class="number">21</span>,<span class="number">34</span>)</span><br><span class="line">&gt; mean(x)</span><br><span class="line">[<span class="number">1</span>] <span class="number">8.8</span></span><br><span class="line">&gt; median(x)</span><br><span class="line">[<span class="number">1</span>] <span class="number">4</span></span><br><span class="line">&gt; sd(x)</span><br><span class="line">[<span class="number">1</span>] <span class="number">11.03328</span></span><br><span class="line">&gt; var(x)</span><br><span class="line">[<span class="number">1</span>] <span class="number">121.7333</span></span><br></pre></td></tr></table></figure>
@@ -80,14 +210,13 @@
 <p>同样，如果x是一个数据框或矩阵，则<code>cor(x)</code> 返回其相关系数矩阵；而<code>cov(x)</code> 返回其协方差矩阵：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&gt; cor(dframe)</span><br><span class="line">             small     medium         big</span><br><span class="line">small   <span class="number">1.00000000</span> -<span class="number">0.3711367</span> -<span class="number">0.08424345</span></span><br><span class="line">medium -<span class="number">0.37113670</span>  <span class="number">1.0000000</span> -<span class="number">0.11466070</span></span><br><span class="line">big    -<span class="number">0.08424345</span> -<span class="number">0.1146607</span>  <span class="number">1.00000000</span></span><br><span class="line">&gt; cov(dframe)</span><br><span class="line">             small      medium         big</span><br><span class="line">small   <span class="number">0.34152627</span> -<span class="number">0.21516416</span> -<span class="number">0.04005275</span></span><br><span class="line">medium -<span class="number">0.21516416</span>  <span class="number">0.98411974</span> -<span class="number">0.09253855</span></span><br><span class="line">big    -<span class="number">0.04005275</span> -<span class="number">0.09253855</span>  <span class="number">0.66186326</span></span><br></pre></td></tr></table></figure>
 <p><code>median</code>函数无法辨认数据框形式的数据。若需计算数据框数据的中位数，需要使用方法6.4对各列分别进行计算。</p>
-<div class="note info"><br>  <h5>生成数列</h5><br>  <p>问题:如何生成一个数列。</p><br></div>
-
-<h3 id="解决方案-4">解决方案</h3><p>使用表达式<code>n:m</code>生成简单数列n,n+1,n+2,…,m：</p>
+<h2 id="生成数列">生成数列</h2><h3 id="问题-6">问题</h3><p>如何生成一个数列。</p>
+<h3 id="解决方案-6">解决方案</h3><p>使用表达式<code>n:m</code>生成简单数列n,n+1,n+2,…,m：</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt; <span class="number">1</span>:<span class="number">5</span></span><br><span class="line">[<span class="number">1</span>] <span class="number">1</span> <span class="number">2</span> <span class="number">3</span> <span class="number">4</span> <span class="number">5</span></span><br></pre></td></tr></table></figure>
 <p>对于增量不为1的数列，可以使用<code>seq</code>函数：</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt; seq(from=<span class="number">1</span>, to=<span class="number">5</span>, by=<span class="number">2</span>)</span><br><span class="line">[<span class="number">1</span>] <span class="number">1</span> <span class="number">3</span> <span class="number">5</span></span><br></pre></td></tr></table></figure>
 <p>使用rep函数生成由一个数的重复所组成的数列：<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt; rep(<span class="number">1</span>, times=<span class="number">5</span>)</span><br><span class="line">[<span class="number">1</span>] <span class="number">1</span> <span class="number">1</span> <span class="number">1</span> <span class="number">1</span> <span class="number">1</span></span><br></pre></td></tr></table></figure></p>
-<h3 id="讨论-4">讨论</h3><p>冒号运算符<code>（n:m）</code>会生成包含n,n+1,n+2,…,m的一个向量：</p>
+<h3 id="讨论-6">讨论</h3><p>冒号运算符<code>（n:m）</code>会生成包含n,n+1,n+2,…,m的一个向量：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&gt; <span class="number">0</span>:<span class="number">9</span></span><br><span class="line">[<span class="number">1</span>] <span class="number">0</span> <span class="number">1</span> <span class="number">2</span> <span class="number">3</span> <span class="number">4</span> <span class="number">5</span> <span class="number">6</span> <span class="number">7</span> <span class="number">8</span> <span class="number">9</span></span><br><span class="line">&gt; <span class="number">10</span>:<span class="number">19</span></span><br><span class="line">[<span class="number">1</span>] <span class="number">10</span> <span class="number">11</span> <span class="number">12</span> <span class="number">13</span> <span class="number">14</span> <span class="number">15</span> <span class="number">16</span> <span class="number">17</span> <span class="number">18</span> <span class="number">19</span></span><br><span class="line">&gt; <span class="number">9</span>:<span class="number">0</span></span><br><span class="line">[<span class="number">1</span>] <span class="number">9</span> <span class="number">8</span> <span class="number">7</span> <span class="number">6</span> <span class="number">5</span> <span class="number">4</span> <span class="number">3</span> <span class="number">2</span> <span class="number">1</span> <span class="number">0</span></span><br></pre></td></tr></table></figure>
 <p><code>注意</code>，上述最后一个表达式（9:0），R软件能自动识别9大于0并以递减的形式生成数列。</p>
 <p>冒号运算符仅能生成增量为1的数列。而seq函数通过它的第三个参数来规定数列元素的增量：</p>
@@ -98,10 +227,9 @@
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt; seq(from=<span class="number">1.0</span>, to=<span class="number">2.0</span>, length.out=<span class="number">5</span>)</span><br><span class="line">[<span class="number">1</span>] <span class="number">1.00</span> <span class="number">1.25</span> <span class="number">1.50</span> <span class="number">1.75</span> <span class="number">2.00</span></span><br></pre></td></tr></table></figure>
 <p>特殊情况下，若需要生成重复某个值的数列，则可以使用rep函数，生成的数列重复其第一个参数值：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt; rep(pi, times=<span class="number">5</span>)</span><br><span class="line">[<span class="number">1</span>] <span class="number">3.141593</span> <span class="number">3.141593</span> <span class="number">3.141593</span> <span class="number">3.141593</span> <span class="number">3.141593</span></span><br></pre></td></tr></table></figure>
-<div class="note info"><br>  <h5>向量比较</h5><br>  <p>问题:如何比较两个向量，或者将一个向量的所有元素与某一个常数进行比较。</p><br></div>
-
-<h3 id="解决方案-5">解决方案</h3><p>比较运算符（==、!=、&lt;、&gt;、&lt;=、&gt;=）能对两向量间的各个元素进行比较。这些运算符也能将向量中所有元素与一个常数进行比较。返回结果是每两个元素间比较结果的逻辑值向量。</p>
-<h3 id="讨论-5">讨论</h3><p>R软件包含两个逻辑值，TRUE和FALSE。在其他编程语言中也称为布尔值（Boolean values）。</p>
+<h2 id="向量比较">向量比较</h2><h3 id="问题-7">问题</h3><p>如何比较两个向量，或者将一个向量的所有元素与某一个常数进行比较。</p>
+<h3 id="解决方案-7">解决方案</h3><p>比较运算符（==、!=、&lt;、&gt;、&lt;=、&gt;=）能对两向量间的各个元素进行比较。这些运算符也能将向量中所有元素与一个常数进行比较。返回结果是每两个元素间比较结果的逻辑值向量。</p>
+<h3 id="讨论-7">讨论</h3><p>R软件包含两个逻辑值，TRUE和FALSE。在其他编程语言中也称为布尔值（Boolean values）。</p>
 <p>比较运算符通过比较两个值，并根据比较结果返回TRUE或FALSE：</p>
 <figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&gt; a &lt;- 3</span><br><span class="line">&gt; a == pi     # 检验两者是否相等</span><br><span class="line">[1] FALSE</span><br><span class="line">&gt; a != pi     # 检验两者是否不等</span><br><span class="line">[1] TRUE</span><br><span class="line">&gt; a &lt; pi</span><br><span class="line">[1] TRUE</span><br><span class="line">&gt; a &gt; pi</span><br><span class="line">[1] FALSE</span><br><span class="line">&gt; a &lt;= pi</span><br><span class="line">[1] TRUE</span><br><span class="line">&gt; a &gt;= pi</span><br><span class="line">[1] FALSE</span><br></pre></td></tr></table></figure>
 <p>你可以使用R软件一次性地对两个向量进行比较，它会将两个向量中每两个对应的元素进行比较，并以逻辑值向量方式返回比较结果：</p>
@@ -110,9 +238,7 @@
 <figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&gt; v &lt;- c(3, pi, 4)</span><br><span class="line">&gt; v == pi# 将包含3个元素的向量与一个常数进行比较</span><br><span class="line">[1] FALSE  TRUE FALSE</span><br><span class="line">&gt; v != pi</span><br><span class="line">[1]  TRUE FALSE  TRUE</span><br></pre></td></tr></table></figure>
 <p>比较两个向量后，你通常会想知道比较结果中是否存在TRUE，或者比较结果是否全为TRUE。可以应用函数any和all来检验上述问题。两个函数都针对逻辑型变量进行检验，其中如果元素中含有至少一个TRUE，则any函数返回TRUE；如果元素全为TRUE，则all函数返回TRUE：</p>
 <figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&gt; v &lt;- c(3, pi, 4)</span><br><span class="line">&gt; any(v == pi)# 若v向量中元素至少一个等于pi，则返回TRUE</span><br><span class="line">[1] TRUE</span><br><span class="line">&gt; all(v == 0)# 若v向量中所有元素都为0，则返回TRUE</span><br><span class="line">[1] FALSE</span><br></pre></td></tr></table></figure>
-<div class="note info"><br>  <h5>选取向量中的元素</h5><br>  <p>问题:如何选取向量中一个或多个元素。</p><br></div>
-
-<h3 id="解决方案-6">解决方案</h3><ul>
+<h2 id="选取向量中的元素">选取向量中的元素</h2><h3 id="问题:如何选取向量中一个或多个元素。">问题:如何选取向量中一个或多个元素。</h3><h3 id="解决方案-8">解决方案</h3><ul>
 <li><p>选择适合问题的索引技术：</p>
 </li>
 <li><p>根据元素在向量中的位置使用方括号来选出元素，如v[3]代表了v向量中的第三个元素。</p>
@@ -126,7 +252,7 @@
 <li><p>使用名称来选择命名的元素。</p>
 </li>
 </ul>
-<h3 id="讨论-6">讨论</h3><p>从向量中选出某些元素是R的又一项强大功能。和其他编程语言一样，R选取向量元素的基本方法是使用一对方括号和简单索引（下标）：</p>
+<h3 id="讨论-8">讨论</h3><p>从向量中选出某些元素是R的又一项强大功能。和其他编程语言一样，R选取向量元素的基本方法是使用一对方括号和简单索引（下标）：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&gt; fib &lt;- c(<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">5</span>,<span class="number">8</span>,<span class="number">13</span>,<span class="number">21</span>,<span class="number">34</span>)</span><br><span class="line">&gt; fib</span><br><span class="line">[<span class="number">1</span>]  <span class="number">0</span>  <span class="number">1</span>  <span class="number">1</span>  <span class="number">2</span>  <span class="number">3</span>  <span class="number">5</span>  <span class="number">8</span> <span class="number">13</span> <span class="number">21</span> <span class="number">34</span></span><br><span class="line">&gt; fib[<span class="number">1</span>]</span><br><span class="line">[<span class="number">1</span>] <span class="number">0</span></span><br><span class="line">&gt; fib[<span class="number">2</span>]</span><br><span class="line">[<span class="number">1</span>] <span class="number">1</span></span><br><span class="line">&gt; fib[<span class="number">3</span>]</span><br><span class="line">[<span class="number">1</span>] <span class="number">1</span></span><br><span class="line">&gt; fib[<span class="number">4</span>]</span><br><span class="line">[<span class="number">1</span>] <span class="number">2</span></span><br><span class="line">&gt; fib[<span class="number">5</span>]</span><br><span class="line">[<span class="number">1</span>] <span class="number">3</span></span><br></pre></td></tr></table></figure>
 <p><code>注意</code>，向量第一个元素的索引（或下标）为1，而非某些编程语言中的0。</p>
 <p>另外也可以同时选择一个向量中的多个元素，向量的索引本身可以是一个向量，并且根据下标向量中所指定的位置选择原向量中的元素：<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt; fib[1:3]# 选择下标为1至3的元素</span><br><span class="line">[1] 0 1 1</span><br><span class="line">&gt; fib[4:9]# 选择下标为4至9的元素</span><br><span class="line">[1]  2  3  5  8 13 21</span><br></pre></td></tr></table></figure></p>
@@ -150,27 +276,39 @@
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&gt; years[<span class="string">"Carter"</span>]</span><br><span class="line">Carter</span><br><span class="line">  <span class="number">1976</span></span><br><span class="line">&gt; years[<span class="string">"Clinton"</span>]</span><br><span class="line">Clinton</span><br><span class="line">   <span class="number">1994</span></span><br></pre></td></tr></table></figure>
 <p>可以推广到使用名称来索引向量元素：R软件会返回向量中对应名称的元素：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt; years[c(<span class="string">"Carter"</span>,<span class="string">"Clinton"</span>)]</span><br><span class="line">Carter Clinton</span><br><span class="line">  <span class="number">1976</span>    <span class="number">1994</span></span><br></pre></td></tr></table></figure>
-<div class="note info"><br>  <h5>向量的计算</h5><br>  <p>问题:你希望对整个向量执行计算。</p><br></div><br>### 解决方案<br><br>基本的数学运算符可以对向量中的元素进行逐个计算。许多其他的函数也能对向量元素逐个进行运算，并以向量的形式输出结果。<br><br>### 讨论<br><br>向量计算是R软件的一大特色。所有的基本数学运算符都能应用于向量对中。这些运算符对两个向量中相应的每个元素对进行计算，即将两个向量中对应的元素进行基本运算：<br><br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&gt; v &lt;- c(<span class="number">11</span>,<span class="number">12</span>,<span class="number">13</span>,<span class="number">14</span>,<span class="number">15</span>)</span><br><span class="line">&gt; w &lt;- c(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>)</span><br><span class="line">&gt; v + w</span><br><span class="line">[<span class="number">1</span>] <span class="number">12</span> <span class="number">14</span> <span class="number">16</span> <span class="number">18</span> <span class="number">20</span></span><br><span class="line">&gt; v - w</span><br><span class="line">[<span class="number">1</span>] <span class="number">10</span> <span class="number">10</span> <span class="number">10</span> <span class="number">10</span> <span class="number">10</span></span><br><span class="line">&gt; v * w</span><br><span class="line">[<span class="number">1</span>] <span class="number">11</span> <span class="number">24</span> <span class="number">39</span> <span class="number">56</span> <span class="number">75</span></span><br><span class="line">&gt; v / w</span><br><span class="line">[<span class="number">1</span>] <span class="number">11.000000</span>  <span class="number">6.000000</span>  <span class="number">4.333333</span>  <span class="number">3.500000</span>  <span class="number">3.000000</span></span><br><span class="line">&gt; w ^ v</span><br><span class="line">[<span class="number">1</span>]     <span class="number">1</span>   <span class="number">4096</span>   <span class="number">1594323</span>   <span class="number">268435456</span>  <span class="number">30517578125</span></span><br></pre></td></tr></table></figure><br><br><code>注意</code>，输出的结果向量的长度与原向量的长度相等。原因是结果向量中的每个元素都是由原向量对中对应的两个元素计算得来。<br><br>若使一个向量与一个常数进行运算，则会将该向量的每个元素与常数进行运算：<br><br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&gt; w</span><br><span class="line">[<span class="number">1</span>] <span class="number">1</span> <span class="number">2</span> <span class="number">3</span> <span class="number">4</span> <span class="number">5</span></span><br><span class="line">&gt; w + <span class="number">2</span></span><br><span class="line">[<span class="number">1</span>] <span class="number">3</span> <span class="number">4</span> <span class="number">5</span> <span class="number">6</span> <span class="number">7</span></span><br><span class="line">&gt; w - <span class="number">2</span></span><br><span class="line">[<span class="number">1</span>] -<span class="number">1</span>  <span class="number">0</span>  <span class="number">1</span>  <span class="number">2</span>  <span class="number">3</span></span><br><span class="line">&gt; w * <span class="number">2</span></span><br><span class="line">[<span class="number">1</span>]  <span class="number">2</span>  <span class="number">4</span>  <span class="number">6</span>  <span class="number">8</span> <span class="number">10</span></span><br><span class="line">&gt; w / <span class="number">2</span></span><br><span class="line">[<span class="number">1</span>] <span class="number">0.5</span> <span class="number">1.0</span> <span class="number">1.5</span> <span class="number">2.0</span> <span class="number">2.5</span></span><br><span class="line">&gt; w ^ <span class="number">2</span></span><br><span class="line">[<span class="number">1</span>]  <span class="number">1</span>  <span class="number">4</span>  <span class="number">9</span> <span class="number">16</span> <span class="number">25</span></span><br><span class="line">&gt; <span class="number">2</span> ^ w</span><br><span class="line">[<span class="number">1</span>]  <span class="number">2</span>  <span class="number">4</span>  <span class="number">8</span> <span class="number">16</span> <span class="number">32</span></span><br></pre></td></tr></table></figure><br><br>例如，可以在一个表达式中得到一个向量减去其元素均值后的向量：<br><br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&gt; w</span><br><span class="line">[<span class="number">1</span>] <span class="number">1</span> <span class="number">2</span> <span class="number">3</span> <span class="number">4</span> <span class="number">5</span></span><br><span class="line">&gt; mean(w)</span><br><span class="line">[<span class="number">1</span>] <span class="number">3</span></span><br><span class="line">&gt; w - mean(w)</span><br><span class="line">[<span class="number">1</span>] -<span class="number">2</span> -<span class="number">1</span>  <span class="number">0</span>  <span class="number">1</span>  <span class="number">2</span></span><br></pre></td></tr></table></figure><br><br>同样，可以通过计算向量减去其均值并除以其标准差，来获得该向量数据的z分数（z-score）：<br><br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&gt; w</span><br><span class="line">[<span class="number">1</span>] <span class="number">1</span> <span class="number">2</span> <span class="number">3</span> <span class="number">4</span> <span class="number">5</span></span><br><span class="line">&gt; sd(w)</span><br><span class="line">[<span class="number">1</span>] <span class="number">1.581139</span></span><br><span class="line">&gt; (w - mean(w)) / sd(w)</span><br><span class="line">[<span class="number">1</span>] -<span class="number">1.2649111</span> -<span class="number">0.6324555</span>  <span class="number">0.0000000</span>  <span class="number">0.6324555</span>  <span class="number">1.2649111</span></span><br></pre></td></tr></table></figure><br><br>向量的运算功能远不止对元素的简单运算。还有许多函数对整个向量进行运算。如sqrt函数和log函数，都可以应用于整个向量中的每个元素，并以向量的形式输出结果：<br><br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&gt; w</span><br><span class="line">[<span class="number">1</span>] <span class="number">1</span> <span class="number">2</span> <span class="number">3</span> <span class="number">4</span> <span class="number">5</span></span><br><span class="line">&gt; sqrt(w)</span><br><span class="line">[<span class="number">1</span>] <span class="number">1.000000</span> <span class="number">1.414214</span> <span class="number">1.732051</span> <span class="number">2.000000</span> <span class="number">2.236068</span></span><br><span class="line">&gt; log(w)</span><br><span class="line">[<span class="number">1</span>] <span class="number">0.0000000</span> <span class="number">0.6931472</span> <span class="number">1.0986123</span> <span class="number">1.3862944</span> <span class="number">1.6094379</span></span><br><span class="line">&gt; sin(w)</span><br><span class="line">[<span class="number">1</span>]  <span class="number">0.8414710</span>  <span class="number">0.9092974</span>  <span class="number">0.1411200</span> -<span class="number">0.7568025</span> -<span class="number">0.9589243</span></span><br></pre></td></tr></table></figure><br><br>R软件的向量运算有两大优点。第一个最明显的优点是操作的简便性，其他编程软件中需要通过循环才能完成的操作，在R软件中一行命令便可以实现。第二个优点是计算速度快。大多数向量化的运算直接由C语言代码来实现，它比你自己用R写的代码本质上快很多。<br><div class="note"><br>    <h5>运算符优先级问题</h5><br>    <p>问题:R软件输出结果有误，你希望了解问题是否由运算符的优先级所导致的。</p><br></div>
-
-<h3 id="解决方案-7">解决方案</h3><p>所有的运算符显示在表2-1中，并以最高优先级至最低优先级的顺序排列。相同优先级的运算符，除特指外皆由从左至右的顺序进行运算。</p>
+<h2 id="向量的计算">向量的计算</h2><h3 id="问题-8">问题</h3><p>你希望对整个向量执行计算。</p>
+<h3 id="解决方案-9">解决方案</h3><p>基本的数学运算符可以对向量中的元素进行逐个计算。许多其他的函数也能对向量元素逐个进行运算，并以向量的形式输出结果。</p>
+<h3 id="讨论-9">讨论</h3><p>向量计算是R软件的一大特色。所有的基本数学运算符都能应用于向量对中。这些运算符对两个向量中相应的每个元素对进行计算，即将两个向量中对应的元素进行基本运算：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&gt; v &lt;- c(<span class="number">11</span>,<span class="number">12</span>,<span class="number">13</span>,<span class="number">14</span>,<span class="number">15</span>)</span><br><span class="line">&gt; w &lt;- c(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>)</span><br><span class="line">&gt; v + w</span><br><span class="line">[<span class="number">1</span>] <span class="number">12</span> <span class="number">14</span> <span class="number">16</span> <span class="number">18</span> <span class="number">20</span></span><br><span class="line">&gt; v - w</span><br><span class="line">[<span class="number">1</span>] <span class="number">10</span> <span class="number">10</span> <span class="number">10</span> <span class="number">10</span> <span class="number">10</span></span><br><span class="line">&gt; v * w</span><br><span class="line">[<span class="number">1</span>] <span class="number">11</span> <span class="number">24</span> <span class="number">39</span> <span class="number">56</span> <span class="number">75</span></span><br><span class="line">&gt; v / w</span><br><span class="line">[<span class="number">1</span>] <span class="number">11.000000</span>  <span class="number">6.000000</span>  <span class="number">4.333333</span>  <span class="number">3.500000</span>  <span class="number">3.000000</span></span><br><span class="line">&gt; w ^ v</span><br><span class="line">[<span class="number">1</span>]     <span class="number">1</span>   <span class="number">4096</span>   <span class="number">1594323</span>   <span class="number">268435456</span>  <span class="number">30517578125</span></span><br></pre></td></tr></table></figure>
+<p><code>注意</code>，输出的结果向量的长度与原向量的长度相等。原因是结果向量中的每个元素都是由原向量对中对应的两个元素计算得来。</p>
+<p>若使一个向量与一个常数进行运算，则会将该向量的每个元素与常数进行运算：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&gt; w</span><br><span class="line">[<span class="number">1</span>] <span class="number">1</span> <span class="number">2</span> <span class="number">3</span> <span class="number">4</span> <span class="number">5</span></span><br><span class="line">&gt; w + <span class="number">2</span></span><br><span class="line">[<span class="number">1</span>] <span class="number">3</span> <span class="number">4</span> <span class="number">5</span> <span class="number">6</span> <span class="number">7</span></span><br><span class="line">&gt; w - <span class="number">2</span></span><br><span class="line">[<span class="number">1</span>] -<span class="number">1</span>  <span class="number">0</span>  <span class="number">1</span>  <span class="number">2</span>  <span class="number">3</span></span><br><span class="line">&gt; w * <span class="number">2</span></span><br><span class="line">[<span class="number">1</span>]  <span class="number">2</span>  <span class="number">4</span>  <span class="number">6</span>  <span class="number">8</span> <span class="number">10</span></span><br><span class="line">&gt; w / <span class="number">2</span></span><br><span class="line">[<span class="number">1</span>] <span class="number">0.5</span> <span class="number">1.0</span> <span class="number">1.5</span> <span class="number">2.0</span> <span class="number">2.5</span></span><br><span class="line">&gt; w ^ <span class="number">2</span></span><br><span class="line">[<span class="number">1</span>]  <span class="number">1</span>  <span class="number">4</span>  <span class="number">9</span> <span class="number">16</span> <span class="number">25</span></span><br><span class="line">&gt; <span class="number">2</span> ^ w</span><br><span class="line">[<span class="number">1</span>]  <span class="number">2</span>  <span class="number">4</span>  <span class="number">8</span> <span class="number">16</span> <span class="number">32</span></span><br></pre></td></tr></table></figure>
+<p>例如，可以在一个表达式中得到一个向量减去其元素均值后的向量：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&gt; w</span><br><span class="line">[<span class="number">1</span>] <span class="number">1</span> <span class="number">2</span> <span class="number">3</span> <span class="number">4</span> <span class="number">5</span></span><br><span class="line">&gt; mean(w)</span><br><span class="line">[<span class="number">1</span>] <span class="number">3</span></span><br><span class="line">&gt; w - mean(w)</span><br><span class="line">[<span class="number">1</span>] -<span class="number">2</span> -<span class="number">1</span>  <span class="number">0</span>  <span class="number">1</span>  <span class="number">2</span></span><br></pre></td></tr></table></figure>
+<p>同样，可以通过计算向量减去其均值并除以其标准差，来获得该向量数据的z分数（z-score）：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&gt; w</span><br><span class="line">[<span class="number">1</span>] <span class="number">1</span> <span class="number">2</span> <span class="number">3</span> <span class="number">4</span> <span class="number">5</span></span><br><span class="line">&gt; sd(w)</span><br><span class="line">[<span class="number">1</span>] <span class="number">1.581139</span></span><br><span class="line">&gt; (w - mean(w)) / sd(w)</span><br><span class="line">[<span class="number">1</span>] -<span class="number">1.2649111</span> -<span class="number">0.6324555</span>  <span class="number">0.0000000</span>  <span class="number">0.6324555</span>  <span class="number">1.2649111</span></span><br></pre></td></tr></table></figure>
+<p>向量的运算功能远不止对元素的简单运算。还有许多函数对整个向量进行运算。如sqrt函数和log函数，都可以应用于整个向量中的每个元素，并以向量的形式输出结果：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&gt; w</span><br><span class="line">[<span class="number">1</span>] <span class="number">1</span> <span class="number">2</span> <span class="number">3</span> <span class="number">4</span> <span class="number">5</span></span><br><span class="line">&gt; sqrt(w)</span><br><span class="line">[<span class="number">1</span>] <span class="number">1.000000</span> <span class="number">1.414214</span> <span class="number">1.732051</span> <span class="number">2.000000</span> <span class="number">2.236068</span></span><br><span class="line">&gt; log(w)</span><br><span class="line">[<span class="number">1</span>] <span class="number">0.0000000</span> <span class="number">0.6931472</span> <span class="number">1.0986123</span> <span class="number">1.3862944</span> <span class="number">1.6094379</span></span><br><span class="line">&gt; sin(w)</span><br><span class="line">[<span class="number">1</span>]  <span class="number">0.8414710</span>  <span class="number">0.9092974</span>  <span class="number">0.1411200</span> -<span class="number">0.7568025</span> -<span class="number">0.9589243</span></span><br></pre></td></tr></table></figure>
+<p>R软件的向量运算有两大优点。第一个最明显的优点是操作的简便性，其他编程软件中需要通过循环才能完成的操作，在R软件中一行命令便可以实现。第二个优点是计算速度快。大多数向量化的运算直接由C语言代码来实现，它比你自己用R写的代码本质上快很多。</p>
+<h2 id="运算符优先级问题">运算符优先级问题</h2><h3 id="问题-9">问题</h3><p>R软件输出结果有误，你希望了解问题是否由运算符的优先级所导致的。</p>
+<h3 id="解决方案-10">解决方案</h3><p>所有的运算符显示在表2-1中，并以最高优先级至最低优先级的顺序排列。相同优先级的运算符，除特指外皆由从左至右的顺序进行运算。</p>
 <p>表2-1：运算符优先级</p>
 <p>运算符含义参考</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">[ [[               索引方法<span class="number">2.9</span></span><br><span class="line">:: :::             使用名称访问变量</span><br><span class="line">$ @                元素提取、位置提取</span><br><span class="line">^                  指数形式（从右到左）</span><br><span class="line">- +                元素的负、正</span><br><span class="line">:                  创建数列方法<span class="number">2.7</span>，<span class="number">7.14</span></span><br><span class="line">%any%              特殊运算符讨论</span><br><span class="line">* /                乘、除讨论</span><br><span class="line">+ -                加、减</span><br><span class="line">== !=  &lt; &gt; &lt;= &gt;=   比较运算符方法<span class="number">2.8</span></span><br><span class="line">！                 逻辑取反</span><br><span class="line">&amp;  &amp;&amp;              逻辑“与”、 短路“与”</span><br></pre></td></tr></table></figure>
 <p>表2-1：运算符优先级（续）<br>运算符含义参考</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">|  ||   逻辑 “或”、 短路“或”</span><br><span class="line">~       公式方法<span class="number">11.1</span></span><br><span class="line">-&gt;  -&gt;&gt; 向右赋值方法<span class="number">2.2</span></span><br><span class="line">=       赋值（从右向左）方法<span class="number">2.2</span></span><br><span class="line">&lt;-  &lt;&lt;- 赋值（从右向左）方法<span class="number">2.2</span></span><br></pre></td></tr></table></figure>
-<h3 id="讨论-7">讨论</h3><p>用户在R中搞错运算符的优先级是经常遇到的问题。我经常会犯这样的错误，例如我会不假思索地认为表达式0:n－1会生成从0~n－1的数列，但事实并非如此：</p>
+<h3 id="讨论-10">讨论</h3><p>用户在R中搞错运算符的优先级是经常遇到的问题。我经常会犯这样的错误，例如我会不假思索地认为表达式0:n－1会生成从0~n－1的数列，但事实并非如此：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt; n &lt;-<span class="number">10</span></span><br><span class="line">&gt; <span class="number">0</span>:n-<span class="number">1</span></span><br><span class="line">[<span class="number">1</span>] -<span class="number">1</span>  <span class="number">0</span>  <span class="number">1</span>  <span class="number">2</span>  <span class="number">3</span>  <span class="number">4</span>  <span class="number">5</span>  <span class="number">6</span>  <span class="number">7</span>  <span class="number">8</span>  <span class="number">9</span></span><br></pre></td></tr></table></figure>
 <p>该表达式生成－1~n－1的数列，因为R软件将上式理解为(0:n)－1。</p>
 <p>你可能不熟悉表2-1中的符号%any%，R中用两个百分号夹带一个符号的形式（%…%）表示一个二元运算符。R中预定义的二元运算符的含义如下：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">%%   取模</span><br><span class="line">%/%  整除</span><br><span class="line">%*%  矩阵乘积</span><br><span class="line">%in% 右侧变量中包含左侧变量时，为TRUE；否则，为FALSE。</span><br></pre></td></tr></table></figure>
 <p>你可以通过%…%记号来定义新的二元运算符，参见方法12.19。此种运算符都具有相同的运算优先级。</p>
-<div class="note unreleased"><br>  <h5>定义函数</h5><br>  <p>问题：如何定义一个R函数。</p><br></div>
-
-<h3 id="解决方案-8">解决方案</h3><p>使用关键字function，并在其后跟随函数参数列表和函数主体。其基本形式如下：</p>
+<h2 id="定义函数">定义函数</h2><h3 id="问题-10">问题</h3><p>如何定义一个R函数。</p>
+<h3 id="解决方案-11">解决方案</h3><p>使用关键字function，并在其后跟随函数参数列表和函数主体。其基本形式如下：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">function(param1, ...., paramN) expr</span><br></pre></td></tr></table></figure>
 <p>函数主体可以是一系列表达式，这些表达式需要用大括号括起来：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">function(param1, ..., paramN) &#123;</span><br><span class="line">  expr1</span><br><span class="line">   .</span><br><span class="line">   .</span><br><span class="line">   .</span><br><span class="line">  exprM</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="讨论-8">讨论</h3><p>函数的定义告诉R软件“用何种方式进行计算”。例如，R软件没有内置计算变异系数的函数，因此你可以定义函数如下：</p>
+<h3 id="讨论-11">讨论</h3><p>函数的定义告诉R软件“用何种方式进行计算”。例如，R软件没有内置计算变异系数的函数，因此你可以定义函数如下：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt; cv &lt;- function(x) sd(x)/mean(x)</span><br><span class="line">&gt; cv(<span class="number">1</span>:<span class="number">10</span>)</span><br><span class="line">[<span class="number">1</span>] <span class="number">0.5504819</span></span><br></pre></td></tr></table></figure>
 <p>第一行定义了名为cv的函数，第二行引用该函数，以1∶10作为其参数x的值。函数对参数应用函数主体中的表达式sd(x)/mean(x)进行计算并返回结果。</p>
 <p>定义函数后，我们可以在任何需要函数的地方应用它，例如可以作为lapply函数的第二个参数：</p>
@@ -193,5 +331,251 @@
 <p><code>全局变量</code></p>
 <p> 在函数中，你可以通过&lt;&lt;-操作符来改变全局变量的值，但此种方法不推荐使用。</p>
 <p><code>另请参阅</code> 有关如何定义函数，参见《An Introduction to R》（<a href="http://cran.r-project.org/doc/manuals/R-intro.pdf）和《R" target="_blank" rel="external">http://cran.r-project.org/doc/manuals/R-intro.pdf）和《R</a> in a Nutshell》。2.12 定义函数</p>
-</div></article><div class="pagination"><a href="/2015/11/08/r-ctree/" class="pagination-prev">PREV</a><a href="/2015/10/21/map-and-list-in-sass/" class="pagination-next">NEXT</a></div></div><aside class="sidebar"><h3>分类标签</h3><ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/awk/">awk</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css/">css</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux/">linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/r/">r</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/shell/">shell</a></li></ul><h3>最新文章</h3><ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2015/11/08/shell-basics/">常用的shell脚本记录</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/11/08/awk-log/">awk 日志处理</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/11/08/r-ctree/">R语言实现之决策树</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/11/08/r-basics/">R语言基础知识</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/21/map-and-list-in-sass/">辨析 Sass 中的 Map 和 List</a></li></ul></aside></section></div><div class="extra"></div><footer class="footer"><div class="row-flex-row limit-width vh-center"><div class="copyright"><P>The contents of this website are © 2015 <a href="/">anduo</a> under the terms of <a href="https://opensource.org/licenses/MIT">the MIT License</a>.</P></div><div class="power"><p>modified by <a href="https://github.com/pinggod">Sean Sun</a>, powered by <a href="https://hexo.io">Hexo</a> and <a href="https://github.com/">GitHub</a>, inspired by <a href="https://jekyllrb.com/">Jekyll</a>
-<a href="https://github.com/oracle1521" target="_blank"><img style="position: absolute; top: 0; left: 0; border: 0;" src="https://camo.githubusercontent.com/8b6b8ccc6da3aa5722903da7b58eb5ab1081adee/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f6c6566745f6f72616e67655f6666373630302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_left_orange_ff7600.png"></a></p></div></div></footer><script>(function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;e=o.createElement(i);r=o.getElementsByTagName(i)[0];e.src='//www.google-analytics.com/analytics.js';r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));ga('create',"UA-XXXXXXX-X",'auto');ga('send','pageview');</script><script>var _hmt = _hmt || [];(function() {var hm = document.createElement("script");hm.src = "//hm.baidu.com/hm.js?xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";var s = document.getElementsByTagName("script")[0]; s.parentNode.insertBefore(hm, s);})();</script><script src="http://cdn.bootcss.com/mathjax/2.5.3/MathJax.js"></script></body></html>
+
+    </div>
+    <footer>
+        
+  
+  <div class="categories">
+    <a href="/categories/数据科学/">数据科学</a>
+  </div>
+
+        
+  
+  <div class="tags">
+    <a href="/tags/r/">r</a>
+  </div>
+
+		<div class="bdsharebuttonbox">
+	<a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a>
+	<a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+	<a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博"></a>
+	<a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网"></a>
+	<a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+	<a href="#" class="bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+	<a href="#" class="bds_twi" data-cmd="twi" title="分享到Twitter"></a>
+	<a href="#" class="bds_more" data-cmd="more"></a>
+	<a href="#" class="bds_count" data-cmd="count"></a>
+</div>
+<script>
+window._bd_share_config=
+{
+	"common":{
+		"bdSnsKey":{},
+		"bdText":"",
+		"bdMini":"2",
+		"bdMiniList":false,
+		"bdPic":"",
+		"bdStyle":"0",
+		"bdSize":"24"
+	},
+	"share":{},
+	"image":{
+		"viewList":["qzone","tsina","tqq","renren","weixin","fbook","twi"],
+		"viewText":"分享到：",
+		"viewSize":"24"
+	},
+	"selectShare":{
+		"bdContainerClass":null,
+		"bdSelectMiniList":["qzone","tsina","tqq","renren","weixin","fbook","twi"]
+	}
+};
+with(document)0[
+	(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)
+];
+</script>    
+        <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+ <nav id="pagination" >
+    
+    <a href="/2015/11/08/r-ctree/" class="alignleft prev" title="R语言实现之决策树">R语言实现之决策树</a>
+    
+    
+    <div class="clearfix"></div>
+</nav>
+
+
+
+	
+	<section id="comment">
+		<!-- 多说评论框 start -->
+		<div class="ds-thread" data-thread-key="2015/11/08/r-basics/" data-title="R语言基础知识" data-url="http://yoursite.com/2015/11/08/r-basics/"></div>
+		<!-- 多说评论框 end -->
+		<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+		<script type="text/javascript">
+		var duoshuoQuery = {short_name:"oracle1521"};
+		(function() {
+			var ds = document.createElement('script');
+			ds.type = 'text/javascript';ds.async = true;
+			ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+			ds.charset = 'UTF-8';
+			(document.getElementsByTagName('head')[0] 
+			 || document.getElementsByTagName('body')[0]).appendChild(ds);
+		})();
+		</script>
+		<!-- 多说公共JS代码 end -->
+	</section>
+	
+</div></div>
+    <aside id="sidebar" class="alignright">
+  <div class="search">
+  <form action="//google.com/search" method="get" accept-charset="utf-8">
+    <input type="search" name="q" results="0" placeholder="搜索">
+    <input type="hidden" name="q" value="site:yoursite.com">
+  </form>
+</div>
+
+  
+<div class="widget tag">
+  <h3 class="title">分类</h3>
+  <ul class="entry">
+  
+    <li><a href="/categories/book/">book</a><small>1</small></li>
+  
+    <li><a href="/categories/shell/">shell</a><small>2</small></li>
+  
+    <li><a href="/categories/数据科学/">数据科学</a><small>2</small></li>
+  
+  </ul>
+</div>
+
+
+  
+<div class="widget tagcloud">
+  <h3 class="title">标签云</h3>
+  <div class="entry">
+    <a href="/tags/awk/" style="font-size: 10px;">awk</a> <a href="/tags/linux/" style="font-size: 20px;">linux</a> <a href="/tags/r/" style="font-size: 20px;">r</a> <a href="/tags/shell/" style="font-size: 10px;">shell</a> <a href="/tags/数据挖掘/" style="font-size: 10px;">数据挖掘</a> <a href="/tags/算法/" style="font-size: 20px;">算法</a> <a href="/tags/读书/" style="font-size: 10px;">读书</a>
+  </div>
+</div>
+
+
+  
+<div class="widget">
+  <h3 class="title">最新文章</h3>
+  <ul class="entry list-unstyled">
+    
+      <li>
+        <a href="/2015/11/08/shell-basics/"  > <i class="mdi-editor-insert-drive-file"></i>常用的shell脚本记录</a>
+      </li>
+    
+      <li>
+        <a href="/2015/11/08/awk-log/"  > <i class="mdi-editor-insert-drive-file"></i>awk 日志处理</a>
+      </li>
+    
+      <li>
+        <a href="/2015/11/08/my-ago-books/"  > <i class="mdi-editor-insert-drive-file"></i>我的算法图书</a>
+      </li>
+    
+      <li>
+        <a href="/2015/11/08/r-ctree/"  > <i class="mdi-editor-insert-drive-file"></i>R语言实现之决策树</a>
+      </li>
+    
+      <li>
+        <a href="/2015/11/08/r-basics/"  > <i class="mdi-editor-insert-drive-file"></i>R语言基础知识</a>
+      </li>
+    
+  </ul>
+</div>
+
+
+
+  <div class="widget tag">
+<h3 class="title">友情链接</h3>
+<ul class="entry">
+<li><a href="http://opiece.me" title="Chillax's Blog" target="_blank">Chillax</a></li>
+</ul>
+</div>
+</aside>
+    <div class="clearfix"></div>
+  </div>
+  <footer id="footer"><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<section class="info">
+		<p> 当时不杂，未来不迎，既往不念 <br/>
+			轻巧键盘，静待回应</p>
+	</section>
+	 
+	<div class="social-font clearfix">
+		
+		<a href="http://weibo.com/443828553" target="_blank" title="weibo"></a>
+		
+		
+		
+		<a href="https://github.com/oracle1521" target="_blank" title="github"></a>
+		
+		
+		
+		
+		<a href="mailto:anduo@qq.com" target="_blank" class="icon-email" title="Email Me"></a>
+		
+	</div>
+		<p class="copyright">Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/huangjunhui/concise" target="_blank" title="Concise">Concise</a> © 2015 
+		
+		<a href="http://yoursite.com/about" target="_blank" title="anduo">anduo</a>
+		
+		</p>
+</div>
+</footer>
+  <script src="//libs.baidu.com/jquery/2.0.3/jquery.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/counter.js"></script>
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+<div id="totop" style="position:fixed;bottom:100px;right:10px;cursor: pointer;">
+<a title="返回顶部"><img src="/imgs/scrollup.png"/></a>
+</div>
+<script src="/js/totop.js"></script>
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+</body>
+</html>
+
+
